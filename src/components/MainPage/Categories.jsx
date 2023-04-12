@@ -1,10 +1,13 @@
 import React from "react"
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const Categories = () => {
   const data = [
     {
       cateImg: "./images/category/cat1.png",
       cateName: "Fashion",
+      routePage: "",
     },
     {
       cateImg: "./images/category/cat2.png",
@@ -50,6 +53,23 @@ const Categories = () => {
 
   return (
     <>
+     <DropdownButton  size="lg" className='category' id="dropdown-categories" title="Categorías">
+        {data.map((value, index) => {
+          return (
+            <Dropdown.Item href={"/"+value.cateName.toLocaleLowerCase().replace("&","-and-").replace(" ","")} >
+              <img src={value.cateImg} alt='' />
+              <span>{value.cateName}</span>
+            </Dropdown.Item>
+
+          )
+        })}
+      </DropdownButton>
+    </>
+  )
+
+
+/*   return (
+    <>
       <div className='category'>
         {data.map((value, index) => {
           return (
@@ -61,7 +81,7 @@ const Categories = () => {
         })}
       </div>
     </>
-  )
+  ) */
 }
 
 export default Categories
