@@ -4,13 +4,17 @@ import { Link } from "react-router-dom"
 import Categories from "../../components/MainPage/Categories"
 
 const Navbar = () => {
-  // Toogle Menu
-  const [MobileMenu, setMobileMenu] = useState(false)
+
   return (
     <>
       <header className='header'>
         <div className='container d_flex'>
         <Categories />
+        <div>
+        Devolución gratuita 
+        <br />
+        despues de 30 dias  
+        </div>
         </div>
       </header>
     </>

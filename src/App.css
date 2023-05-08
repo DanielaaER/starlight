@@ -107,8 +107,7 @@ button {
 
 /*---------category----------*/
 .btn-primary {
-  background: #e94560;
-  padding: 13px 40px;
+  background: #2398E8 !important;
   font-weight: bold;
   color: #fff;
   border-radius: 5px;
@@ -226,8 +225,7 @@ button {
   color: white;
   cursor: pointer;
 }
-/*----- control btn -------*/
-/*----- heading -------*/
+
 .heading .heading-left i {
   font-size: 30px;
 }
@@ -250,4 +248,9 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+}
+
+
+.btn-color-primary-startlight{
+  background-color: #e82323; 
 }

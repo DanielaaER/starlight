@@ -14,7 +14,7 @@ const Head = () => {
           </div>
           <div className='right row RText'>
             
-            {/* We can add more abel here for example config languaje page or divisas */}
+            {/* We can add more label here for example config languaje page or divisas */}
             <Link to='/contact'>
               <label>¿Necesitas ayuda? llamanos: (+52) 55 75 61 2288</label>
             </Link>    

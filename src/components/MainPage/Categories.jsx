@@ -53,7 +53,7 @@ const Categories = () => {
 
   return (
     <>
-     <DropdownButton  size="lg" className='category' id="dropdown-categories" title="Categorías">
+     <DropdownButton  size="lg" className='category btn-primary' title="Categorías">
         {data.map((value, index) => {
           return (
             <Dropdown.Item href={"/"+value.cateName.toLocaleLowerCase().replace("&","-and-").replace(" ","")} >
