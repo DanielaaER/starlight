@@ -1,0 +1,238 @@
+footer {
+  background-color: #E2F4FF;
+  padding: 100px 0 0;
+  color: #1B5A7D;
+}
+
+.container.grid2 {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  margin: 0px 9%;
+}
+
+footer .img {
+  margin: 0px 9%;
+  width: 111px;
+  height: 186px;
+}
+
+footer .img i {
+  font-size: 20px;
+  margin: 5px;
+}
+
+footer .img span {
+  margin-top: 5px;
+}
+
+.box p {
+  margin-bottom: 40%;
+}
+
+footer p {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+footer h2 {
+  margin-bottom: 20px;
+}
+
+footer li {
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+footer .logo img {
+  width: auto;
+  height: auto;
+}
+
+footer .width {
+  width: 20%;
+}
+
+
+
+.fa-headset {
+  font-size: 45px;
+}
+
+.icon-container {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  gap: 80%;
+  margin: 10% 40%;
+}
+
+
+
+footer h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  text-align: center;
+  color: #1B5A7D;
+  
+}
+
+
+
+
+
+
+
+
+.box-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10%;
+  width: 90%;
+  max-width: 1320px;
+  height: 139px;
+  background: #FFF;
+  margin: 0 auto 41px auto;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .box-1 {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box-1 {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+
+
+
+
+
+footer h1 {
+  width: 70%;
+  height: 88px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #1B5A7D;
+  margin: 0 auto;
+  /* Establece los márgenes izquierdo y derecho a 'auto' */
+  display: flex;
+  /* Establece el contenedor como flexbox */
+  justify-content: center;
+  /* Centra horizontalmente el contenido */
+  align-items: center;
+  /* Centra verticalmente el contenido */
+
+}
+
+footer h3 {
+  width: 40px;
+  height: 21px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+
+}
+
+footer .btn-blue-light-nav {
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+  border: none;
+  gap: 10px;
+  width: 300%;
+  height: 63px;
+
+  margin-left: -120%;
+  background: #2398E8;
+  border-radius: 20px;
+
+
+}
+
+footer .llamada {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+
+  left:-94px;
+  top:-3px;
+
+
+}
+
+footer h4 {
+  width: 45%;
+  height: 42px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #606060;
+
+}
+
+.fa-headset {
+  font-size: 45px;
+}
+
+.icon-container {
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+
+

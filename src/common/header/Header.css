@@ -1,0 +1,114 @@
+.navbar{
+  background-color: #0865B5;
+}
+
+/*------head-----------*/
+.head {
+  background-color: #ffffff;
+  padding: 10px 0;
+  color: #000000;
+}
+
+.head i {
+  margin-right: 10px;
+}
+
+.head label {
+  margin-right: 30px;
+  font-size: 13px;
+}
+
+.header{
+  background-color: #F4F4F4;
+}
+
+
+.cart {
+  position: relative;
+}
+
+.search .cart span {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #e94560;
+  font-size: 12px;
+  color: #fff;
+}
+
+
+/*------search-----------*/
+.catgrories {
+  background-color: #2398E8;
+  padding: 0px 30px;
+  border-radius: 5px;
+  height: 6vh;
+  margin-top: 5px;
+}
+
+.catgrories span {
+  margin-right: 20px;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.catgrories h4 {
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.catgrories h4 i {
+  margin-left: 10px;
+}
+
+header {
+  height: 8vh;
+  box-shadow: -1px 15px 17px -8px rgba(0, 0, 0, 0.1);
+}
+
+header ul {
+  line-height: 8vh;
+}
+
+header ul li {
+  margin-left: 30px;
+}
+
+header ul li a {
+  transition: 0.5s;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+header ul li a:hover {
+  color: #ff014f;
+}
+
+
+#dropdown-categories{
+  padding: 0px 30px;
+  border-radius: 5px;
+  height: 6vh;
+  width: 15em;
+  margin-top: 5px;
+}
+
+
+.search-input {
+  left:10px !important;
+  width:40em !important;
+  height:3em !important;
+
+  }
+
+.btn-input {
+  position:relative !important;
+  left:-55px !important;
+  width:7em !important;
+  height:3em !important;
+ 
+  }
