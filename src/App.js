@@ -71,28 +71,28 @@ function App() {
     <>
       <Router>
         <Header CartItem={CartItem} />
-        <Switch>
-          <Route path='/' exact>
+        <Router>
+          <Route exact path='/' >
           </Route>
-          <Route path='/cart' exact>
-            <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+          <Route exact path='/cart' element={<Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />}>
+
           </Route>
           <Route path='/account' exact>
             <Account />
           </Route>
 
-          
+
           <Route path='/login' exact>
             <Login />
           </Route>
-          
+
           <Route path='/signup' exact>
             <Signup />
           </Route>
 
 
-        </Switch>
-        <Footer /> 
+        </Router>
+        <Footer />
       </Router>
     </>
   )

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import logo_footer from "../../components/assets/images/logo_footer.svg"
 
 import { Link } from "react-router-dom"
-import { useHistory } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -13,11 +12,7 @@ import './login.css';
 
 const Login = () => {
 
-    const history = useHistory()
-
-    const handleSignup = () => {
-        history.push('/signup');
-    }
+   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado que indica si el usuario está autenticado
@@ -94,7 +89,7 @@ const Login = () => {
 
                                 <button className="continue-btn">Continuar</button>
 
-                                <button className="register-btn" onClick={handleSignup}>Registrarse</button>
+                                <button className="register-btn" onClick={() => navigate("/signup")}>Registrarse</button>
                             </div>
 
                         </div>

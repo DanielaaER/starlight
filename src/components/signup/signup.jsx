@@ -1,20 +1,15 @@
 import React from 'react';
 import logo_footer from "../../components/assets/images/logo_footer.svg"
-import { useHistory } from 'react-router-dom';
-
 
 import { Link } from "react-router-dom"
 
+import { useNavigate } from "react-router-dom";
 import './signup.css';
 
 
 const Signup = () => {
-    const history = useHistory()
 
-    const handleLogin = () => {
-        history.push('/login');
-    }
-
+    const navigate = useNavigate();
     return (
         <>
             <signup>
@@ -92,7 +87,7 @@ const Signup = () => {
                         <div className="form-container">
                             <div className="button-container">
 
-                                <button className="continue-btn" onClick={handleLogin}>Iniciar Sesion</button>
+                                <button className="continue-btn" onClick={() => navigate("/login")}>Iniciar Sesion</button>
                                 <p className="or-label">¿Ya tienes cuenta?</p>
                             </div>
 
