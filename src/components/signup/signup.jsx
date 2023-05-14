@@ -1,5 +1,7 @@
 import React from 'react';
 import logo_footer from "../../components/assets/images/logo_footer.svg"
+import { useHistory } from 'react-router-dom';
+
 
 import { Link } from "react-router-dom"
 
@@ -7,6 +9,12 @@ import './signup.css';
 
 
 const Signup = () => {
+    const history = useHistory()
+
+    const handleLogin = () => {
+        history.push('/login');
+    }
+
     return (
         <>
             <signup>
@@ -16,38 +24,93 @@ const Signup = () => {
                             <img src={logo_footer} alt='startlight' />
                         </a>
                     </div>
-                    <h1>Iniciar Sesión</h1>
-                    <div className="form-container">
-                        <div className="input-container">
-                            <label htmlFor="username">Usuario:</label>
-                            <input type="text" id="username" />
+                    <h1>Registrarse :)</h1>
+                    <div className="form1-container">
+
+                        <div className='form-container'>
+                            <div className="input-container">
+                                <label htmlFor="nombre">Nombre:</label>
+                                <input type="text" id="nombre"
+                                    placeholder="ingresa tu nombre o nombres" />
+                            </div>
+
+
+                            <div className="input-container">
+                                <label htmlFor="aPaterno">Apellido paterno:</label>
+                                <input type="text" id="aPaterno"
+                                    placeholder="ingresa tu apellido paterno" />
+                            </div>
+
+
+                            <div className="input-container">
+                                <label htmlFor="aMaterno">Apellido materno:</label>
+                                <input type="text" id="aMaterno"
+                                    placeholder="ingresa tu apellido materno" />
+                            </div>
+
+
+                            <div className="input-container">
+                                <label htmlFor="password">Contraseña:</label>
+                                <input type="password" id="password" placeholder='ingresa tu contraseña' />
+                            </div>
+
                         </div>
-                        <div className="input-container">
-                            <label htmlFor="password">Contraseña:</label>
-                            <input type="password" id="password" />
+
+
+                        <div className='form-container'>
+
+
+                            <div className="input-container">
+                                <label htmlFor="usuario">Usuario:</label>
+                                <input type="text" id="usuario"
+                                    placeholder="ingresa tu usuario" />
+                            </div>
+
+                            <div className="input-container">
+                                <label htmlFor="correo">Correo:</label>
+                                <input type="email" id="correo"
+                                    placeholder="ingresa tu correo electronico" />
+                            </div>
+
+                            <div className="input-container">
+                                <label htmlFor="celular">Celular:</label>
+                                <input type="text" id="celular"
+                                    placeholder="ingresa tu numero telefonico" />
+                            </div>
+
+                            <div className="input-container">
+                                <label htmlFor="password">Confirmar contraseña:</label>
+                                <input type="password" id="password" placeholder='ingresa tu contraseña' />
+                            </div>
+
                         </div>
-                        <Link to='/forgot'>
-                            <p>¿Olvidaste tu contraseña?</p>
-                        </Link>
+
+
 
                     </div>
-                    <div className="form-container">
-                        <div className="button-container">
+                    <div className="form1-container">
+                        <div className="form-container">
+                            <div className="button-container">
 
-                            <button className="continue-btn">Continuar</button>
+                                <button className="continue-btn" onClick={handleLogin}>Iniciar Sesion</button>
+                                <p className="or-label">¿Ya tienes cuenta?</p>
+                            </div>
 
-                            <button className="register-btn">Registrarse</button>
                         </div>
 
+                        <div className='form-container'>
+                            <div className="button-container">
+                                <button className="register-btn">Registrarse</button>
+
+                            </div>
+                        </div>
+
+
+
                     </div>
 
 
 
-                    <p className="or-label">O inicia sesión con:</p>
-                    <div className="logo-container">
-                        <i className='fab fa-google'></i>
-                        <i className='fab fa-facebook-f'></i>
-                    </div>
                 </div>
             </signup>
         </>

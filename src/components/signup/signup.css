@@ -19,16 +19,25 @@ signup .logo {
     margin-bottom: 40px;
 }
 
-signup .signup h1 {
+signup h1 {
     font-size: 36px;
     margin-bottom: 40px;
     color: #1B5A7D;
 }
 
 signup .form-container {
-    width: 100%;
+    width: 50%;
     max-width: 400px;
     margin-bottom: 40px;
+    margin: 2%;
+}
+
+signup .form1-container {
+    width: 200%;
+    max-width: 800px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row
 }
 
 signup .input-container {
