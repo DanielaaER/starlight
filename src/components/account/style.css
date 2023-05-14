@@ -1,0 +1,20 @@
+.img-orders{
+    width:10em;
+}
+
+.order-list {
+    width:80em;
+}
+
+.order-item-price{
+    position:relative;
+    left:5px;
+    top:33px;
+    text-align:center;
+}
+
+.order-item-shipping-details{
+    width: 100em;
+}
+
+

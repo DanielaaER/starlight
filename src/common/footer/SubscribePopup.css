@@ -1,0 +1,11 @@
+.popup-content {
+    max-height: calc(100vh - 100px);
+    max-width: calc(100vw - 100px);
+    margin: 50px auto;
+    overflow-y: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px #E2F4FF;
+  }
+  

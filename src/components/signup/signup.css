@@ -1,0 +1,147 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 200px;
+}
+
+signup .fab {
+    font-size: 30px;
+    padding: 20px;
+    color: #1B5A7D;
+
+}
+
+
+signup .logo {
+    margin-bottom: 40px;
+}
+
+signup .signup h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #1B5A7D;
+}
+
+signup .form-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+signup .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+signup label {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+signup input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 0px 25px;
+    gap: 10px;
+
+    height: 46px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+}
+
+signup .button-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+
+signup button:hover {
+    background-color: #FFFFFF;
+
+    border: 3px solid #0865B5;
+    color: #0865B5;
+}
+
+
+signup button {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+
+}
+
+signup .continue-btn {
+    color: white;
+    padding: 10px;
+    background: #0865B5;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    /* Agregamos un margen inferior de 10 píxeles */
+}
+
+signup .register-btn {
+    padding: 10px;
+    background: #0865B5;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 10px;
+    /* Agregamos un margen inferior de 10 píxeles */
+}
+
+signup .or-label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    /* identical to box height */
+
+
+    color: #3A3A3A;
+
+}
+
+signup .logo-container {
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin-bottom: 20px;
+    ;
+}
+
+
+@media (max-width: 768px) {
+    signup .signup-container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    signup h1 {
+        font-size: 24px;
+    }
+
+    signup .form-container {
+        max-width: 300px;
+    }
+
+    signup label {
+        font-size: 16px;
+    }
+
+    signup input {
+        font-size: 14px;
+    }
+
+
+
+}

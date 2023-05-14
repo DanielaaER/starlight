@@ -2,12 +2,11 @@ import React, { useState } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Header from "./common/header/Header"
-import Pages from "./pages/Pages"
-import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
+import Account from "./common/Account/Account"
 import Footer from "./common/footer/Footer"
-import Sdata from "./components/shops/Sdata"
-
+import Login from "./components/login/login"
+import Signup from "./components/signup/signup"
 
 function App() {
   /*
@@ -22,10 +21,10 @@ function App() {
   Step 4 :  addToCart lai chai pass garne using props in pages and cart components
   */
 
-  //Step 1 :
+  /*Step 1 :
   const { productItems } = Data
   const { shopItems } = Sdata
-
+*/
   //Step 2 :
   const [CartItem, setCartItem] = useState([])
 
@@ -74,13 +73,26 @@ function App() {
         <Header CartItem={CartItem} />
         <Switch>
           <Route path='/' exact>
-            <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
           </Route>
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
           </Route>
+          <Route path='/account' exact>
+            <Account />
+          </Route>
+
+          
+          <Route path='/login' exact>
+            <Login />
+          </Route>
+          
+          <Route path='/signup' exact>
+            <Signup />
+          </Route>
+
+
         </Switch>
-        <Footer />
+        <Footer /> 
       </Router>
     </>
   )

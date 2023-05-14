@@ -1,3 +1,36 @@
+.account-without-data {
+  position:absolute;
+  left: 70px;
+  top:122px;
+}
+
+.btn-primary{
+  background-color: #2398E8 !important;;
+}
+
+.return-order-item-buttons {
+  width:100em ;
+}
+
+.container-tables {
+  display: grid;
+  position:relative;
+  left:41px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 4em;
+}
+
+.account-btn-add {
+  width: 18erm;
+  height: 18erm;
+  /* centrar vertical y horizontalmente */
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 * {
   padding: 0;
@@ -249,6 +282,13 @@ button {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 }
+
+
+.card-header{
+  background: #E2F4FF !important;
+}
+
+
 
 
 .btn-color-primary-startlight{
