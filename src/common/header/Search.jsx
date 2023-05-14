@@ -65,7 +65,7 @@ const Search = ({ CartItem }) => {
                     id={`offcanvasNavbarDropdown-expand-sm`}
                   >
                     <NavDropdown.Item href="/login">Iniciar sesion</NavDropdown.Item>
-                    <NavDropdown.Item href="/sigup">
+                    <NavDropdown.Item href="/signup">
                       Registrarse
                     </NavDropdown.Item>
                    {/*  <NavDropdown.Divider />

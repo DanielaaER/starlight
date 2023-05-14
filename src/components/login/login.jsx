@@ -1,6 +1,8 @@
 import React from 'react';
 import logo_footer from "../../components/assets/images/logo_footer.svg"
 
+import { Link } from "react-router-dom"
+
 import './login.css';
 
 
@@ -24,6 +26,9 @@ const Login = () => {
                             <label htmlFor="password">Contraseña:</label>
                             <input type="password" id="password" />
                         </div>
+                        <Link to='/forgot'>
+                            <p>¿Olvidaste tu contraseña?</p>
+                        </Link>
 
                     </div>
                     <div className="form-container">
