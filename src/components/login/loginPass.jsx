@@ -9,14 +9,12 @@ import { useNavigate } from "react-router-dom";
 import AuthService from "../../services/auth.service";
 import './login.css';
 
-import LoginPass from "./loginPass";
 
+const LoginPass = ({ usuario }) => {
 
-const Login = () => {
+    console.log(usuario)
 
-
-    const [email, setEmail] = useState("");
-    const [user, setUser] = useState("");
+    const user = usuario;
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado que indica si el usuario está autenticado
     const navigate = useNavigate();
@@ -39,22 +37,13 @@ const Login = () => {
         checkLoginStatus();
     }, [navigate]);
 
-
-
-
-    const [loginP, setLoginP] = useState(false);
-
-
     const handleLogin = async (e) => {
         /* e.preventDefault();
          try {
              await AuthService.login(email, password).then(
                  () => {*/
-        setLoginP(true);
-        {
-            loginP &&
-                <LoginPass usuario={user} />
-        }
+        setIsLoggedIn(true); // actualizar el estado a true
+        navigate("/loginPass");
         window.location.reload();
         /*  },
           (error) => {
@@ -70,7 +59,10 @@ const Login = () => {
         <>
             <login>
                 {isLoggedIn ? (
-                    <div></div>
+                    <div>
+                        <h1>You are already logged in!</h1>
+                        <Button onClick={() => navigate("/dashboard/admin/section/user")}>Go to Dashboard</Button>
+                    </div>
                 ) : (
                     <div className="login-container">
                         <div className="logo width ">
@@ -81,20 +73,27 @@ const Login = () => {
                         <h1>Iniciar Sesión</h1>
 
                         <Form className="form-container" onSubmit={handleLogin}>
-
                             <Form.Group className="input-container">
-                                <Form.Label >Usuario:</Form.Label>
-                                <Form.Control className="input" type="text" placeholder="username" required value={user} onChange={(e) => setUser(e.target.value)} />
+                                <Form.Label>Usuario:</Form.Label>
+                                <Form.Control className="input" type="text" placeholder="username" required value={user} readOnly />
+                            </Form.Group>
+                            <Form.Group className="input-container">
+                                <Form.Label >Contraseña:</Form.Label>
+                                <Form.Control className="input" type="password" placeholder="contraseña" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                                <Form.Text className="text-muted">
+                                    <Link to='/forgot'> ¿Olvidaste la contraseña? </Link>
+                                </Form.Text>
 
                                 <Form.Control.Feedback type="invalid">
-                                    Porfavor ingresa un usuario valido .
+                                    Porfavor ingresa una contraseña valida.
                                 </Form.Control.Feedback>
                             </Form.Group>
-
 
                             <div className="button-container">
 
                                 <button className="continue-btn" type="submit">Continuar</button>
+
+                                <button className="continue-btn" type="submit">Iniciar sesion con codigo</button>
 
                                 <button className="register-btn" onClick={() => navigate("/signup")}>Registrarse</button>
                             </div>
@@ -115,7 +114,7 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginPass
 
 
 

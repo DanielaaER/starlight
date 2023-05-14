@@ -33,11 +33,11 @@ signup .form-container {
 }
 
 signup .form1-container {
-    width: 200%;
+    width: 100%;
     max-width: 800px;
-    margin-bottom: 40px;
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+    gap: 5%;
 }
 
 signup .input-container {
@@ -51,7 +51,7 @@ signup label {
     margin-bottom: 8px;
 }
 
-signup input {
+signup .input {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import "./App.css"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Header from "./common/header/Header"
 import Cart from "./common/Cart/Cart"
 import Account from "./common/Account/Account"
 import Footer from "./common/footer/Footer"
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
+import LoginPass from "./components/login/loginPass"
 
 function App() {
   /*
@@ -71,27 +72,19 @@ function App() {
     <>
       <Router>
         <Header CartItem={CartItem} />
-        <Router>
-          <Route exact path='/' >
-          </Route>
-          <Route exact path='/cart' element={<Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />}>
+        <Routes>
+          <Route path='/' />
+          <Route path='/cart' element={<Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />} />
 
-          </Route>
-          <Route path='/account' exact>
-            <Account />
-          </Route>
+          <Route path='/account' element={<Account />} />
 
 
-          <Route path='/login' exact>
-            <Login />
-          </Route>
+          <Route path='/login' element={<Login />} />
 
-          <Route path='/signup' exact>
-            <Signup />
-          </Route>
+          <Route path='/signup' element={<Signup />} />
 
 
-        </Router>
+        </Routes>
         <Footer />
       </Router>
     </>

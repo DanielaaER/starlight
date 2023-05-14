@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="box">
             <div className="logo width">
               <a href="/">
-                <img src={logo_footer} alt="startlight" />
+                <img className="logo" src={logo_footer} alt="startlight" />
               </a>
             </div>
             <p>Visitanos en nuestras redes sociales</p>
@@ -89,9 +89,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
-
-
       </footer>
 
 
@@ -102,32 +99,23 @@ const Footer = () => {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Nombre de usuario</Form.Label>
-              <Form.Control
-                type="text"
-                id="profile-user-name"
-                placeholder="Ejemplo.01"
-                defaultValue=""
-
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Nombre completo</Form.Label>
               <Form.Control
+                className="input"
                 type="text"
                 id="profile-name"
-                placeholder="Ejemplo"
+                placeholder="Nombre y apellidos"
                 defaultValue=""
 
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label >Email address</Form.Label>
               <Form.Control
+                className="input"
                 type="email"
                 id="profile-email"
-                placeholder="ejemplo.01@ejemplo.com"
+                placeholder="example@mail.com"
                 defaultValue=""
 
               />
@@ -136,10 +124,10 @@ const Footer = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="footer-btn" variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={() => {
+          <Button className="footer-btn" variant="primary" onClick={() => {
             handleClose();
           }}
           >

@@ -42,7 +42,8 @@ login label {
     margin-bottom: 8px;
 }
 
-login input {
+
+login .input {
     display: flex;
     flex-direction: column;
     align-items: center;
