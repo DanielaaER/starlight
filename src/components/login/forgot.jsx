@@ -11,10 +11,10 @@ import './login.css';
 
 
 
-const Verify = () => {
+const Forgot = () => {
 
 
-    const [code, setCode] = useState("")
+    const [email, setEmail] = useState("")
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const navigate = useNavigate();
@@ -40,24 +40,24 @@ const Verify = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-          if (code === "123a") {
-            console.log("valido")
-            setIsLoggedIn(true); // actualizar el estado a true
-            navigate("/");
-            window.location.reload();
-          } else {
-            handleCodeResend();
-          }
+            if (email === "correo@mail.com") {
+                console.log("valido")
+                setIsLoggedIn(true); // actualizar el estado a true
+                navigate("/verifyMail");
+                window.location.reload();
+            } else {
+                handleCodeResend();
+            }
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
 
     const [alertStyle, setAlertStyle] = useState({ backgroundColor: "", color: "", fontFamily: "" });
 
     const handleCodeResend = () => {
-        alert("Código reenviado");
+        alert("Correo incorrecto");
         setAlertStyle({ backgroundColor: "#B3D3E5", color: "white", fontFamily: "Poppins" });
     };
 
@@ -77,19 +77,19 @@ const Verify = () => {
                                 <img src={logo_footer} alt='startlight' />
                             </a>
                         </div>
-                        <h1>Verifica tu identidad </h1>
+                        <h1>Recupera tu contraseña </h1>
 
                         <Form className="form-container" onSubmit={handleLogin}>
                             <Form.Group className="input-container">
-                                <Form.Label>Ingresa el codigo:</Form.Label>
-                                <Form.Control className="input" type="text" placeholder="code" required value={code} onChange={(e) => setCode(e.target.value)} />
+                                <Form.Label>Ingresa tu correo:</Form.Label>
+                                <Form.Control className="input" type="email" placeholder="correo electronico" required value={email} onChange={(e) => setEmail(e.target.value)} />
                             </Form.Group>
 
                             <div className="button-container">
 
-                                <button className="continue-btn" type="submit">Crea una cuenta</button>
+                                <button className="continue-btn" type="submit">Continuar</button>
 
-                                <button className="register-btn" onClick={handleCodeResend}>Reenvia el codigo</button>
+                                <button className="register-btn" onClick={() => navigate("/login")}>Inicia Sesion </button>
                             </div>
 
                         </Form>
@@ -108,7 +108,7 @@ const Verify = () => {
     )
 }
 
-export default Verify
+export default Forgot
 
 
 

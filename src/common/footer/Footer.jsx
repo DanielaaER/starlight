@@ -68,25 +68,31 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="box">
-            <h2>Encuentra un producto</h2>
-            <ul>
-              <li>Mackbooks</li>
-              <li>Sillones</li>
-              <li>Smartphones</li>
-              <li>Reloj Inteligente</li>
-              <li>Licuadoras</li>
-            </ul>
-          </div>
-          <div className="box">
-            <h2>Ayuda</h2>
-            <ul>
-              <li>Acerca de nosotros</li>
-              <li>Contactanos</li>
-              <li>Politicas</li>
-              <li>Politicas de privacidad</li>
-              <li>Politica de pago</li>
-            </ul>
+
+
+          <div className="container foot">
+            <div className="box">
+              <h2>Encuentra un producto</h2>
+              <ul>
+                <li>Mackbooks</li>
+                <li>Sillones</li>
+                <li>Smartphones</li>
+                <li>Reloj Inteligente</li>
+                <li>Licuadoras</li>
+              </ul>
+            </div>
+            <div className="box">
+              <h2>Ayuda</h2>
+              <ul>
+                <li>Acerca de nosotros</li>
+                <li>Contactanos</li>
+                <li>Politicas</li>
+                <li>Politicas de privacidad</li>
+                <li>Politica de pago</li>
+              </ul>
+            </div>
+
+
           </div>
         </div>
       </footer>

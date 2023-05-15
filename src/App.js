@@ -8,6 +8,10 @@ import Footer from "./common/footer/Footer"
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
 import Verify from "./components/login/verify"
+import Forgot from "./components/login/forgot"
+import VerifyCode from "./components/login/verifyCode"
+import VerifyMail from "./components/login/verifyMail"
+
 function App() {
   /*
   step1 :  const { productItems } = Data 
@@ -83,6 +87,12 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           
           <Route path='/verify' element={<Verify />} />
+
+          <Route path='/verifyMail' element={<VerifyMail />} />
+          
+          <Route path='/verifyCode' element={<VerifyCode />} />
+          
+          <Route path='/forgot' element={<Forgot />} />
 
 
         </Routes>

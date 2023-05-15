@@ -105,7 +105,7 @@ const Login = () => {
                                 <button className="continue-btn" type="submit">Continuar</button>
 
                                 {isUser ? (
-                                    <button className="continue-btn" type="submit">Iniciar sesion con codigo</button>
+                                    <button className="continue-btn" type="submit" onClick={() => navigate("/verifyCode")} >Iniciar sesion con codigo</button>
                                 ) : null}
                                 <button className="register-btn" onClick={() => navigate("/signup")}>Registrarse</button>
                             </div>
