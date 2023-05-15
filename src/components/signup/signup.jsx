@@ -20,6 +20,9 @@ const Signup = () => {
 
     const [name, setName] = useState("");
     const [last_name, setLast_name] = useState("");
+    
+    const [cell, setCell] = useState("");
+    const [last_name2, setLast_name2] = useState("");
     const [vendedor, setVendedor] = useState("");
 
     const [email, setEmail] = useState("");
@@ -94,6 +97,15 @@ const Signup = () => {
                             </Form.Group>
 
                             <Form.Group className="input-container">
+                                <Form.Label >Apellido Materno:</Form.Label>
+                                <Form.Control className="input" type="text" placeholder="Apellido Materno" required value={last_name2} onChange={(e) => setLast_name2(e.target.value)} />
+
+                                <Form.Control.Feedback type="invalid">
+                                    Porfavor ingresa un Apellido valido .
+                                </Form.Control.Feedback>
+                            </Form.Group>
+
+                            <Form.Group className="input-container">
                                 <Form.Label >Contraseña:</Form.Label>
                                 <Form.Control className="input" type="password" placeholder="contraseña" required value={password} onChange={(e) => setPassword(e.target.value)} />
 
@@ -128,7 +140,7 @@ const Signup = () => {
                             </Form.Group>
 
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Group className="input-container">
                                 <Form.Label>Correo electronico:</Form.Label>
                                 <Form.Control className="input" type="email" placeholder="example@mail.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
 
@@ -136,6 +148,17 @@ const Signup = () => {
                                     Please insert a valid email.
                                 </Form.Control.Feedback>
                             </Form.Group>
+
+                            
+                            <Form.Group className="input-container">
+                                <Form.Label> Celular:</Form.Label>
+                                <Form.Control className="input" type="text" placeholder="000 000 0000" required value={cell} onChange={(e) => setCell(e.target.value)} />
+
+                                <Form.Control.Feedback type="invalid">
+                                    Please insert a valid cellphone.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+
 
                             <Form.Group className="input-container">
                                 <Form.Label >Confirma Contraseña:</Form.Label>

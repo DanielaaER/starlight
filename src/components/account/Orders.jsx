@@ -10,33 +10,33 @@ import "./style.css";
 
 const Orders = () => {
 
-    if(AccountData[0]["order_list"].length == 0){
-        return  <>
-        <Row className="justify-content-md-center">
-            <Col className="p-4">
-                <Container className="container-tables">
-                    <Card border="info" style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Text>
-                            No has realizado ningun pedido :(
-                                <br />
-                            Haz clic para poder comprar uno
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card border="info" style={{ width: '18rem', height: '18rem' }} >
+    if (AccountData[0]["order_list"].length == 0) {
+        return <>
+            <Row className="justify-content-md-center">
+                <Col className="p-4">
+                    <Container className="container-tables">
+                        <Card border="info" style={{ width: '18rem' }}>
                             <Card.Body>
-                            <Card.Text>
-                                <div className="account-without-data">
-                                    <Button variant="primary">Continua comprando</Button>
-                                </div>
+                                <Card.Text>
+                                    No has realizado ningun pedido :(
+                                    <br />
+                                    Haz clic para poder comprar uno
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                </Container>
-            </Col>
-        </Row>
-    </>
+                        <Card border="info" style={{ width: '18rem', height: '18rem' }} >
+                            <Card.Body>
+                                <Card.Text>
+                                    <div className="account-without-data">
+                                        <Button variant="primary">Continua comprando</Button>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Container>
+                </Col>
+            </Row>
+        </>
     }
 
     return (
@@ -51,10 +51,11 @@ const Orders = () => {
                                         <div className='img-orders'>
                                             <img src={value.url_img} style={{ width: "10em" }} alt='' />
                                         </div>
+                                        
                                         <div className='order-details p-3'>
                                             <h3><b>{value.name}</b></h3>
                                             <p>
-                                               {value.description}
+                                                {value.description}
                                             </p>
                                         </div>
 
@@ -66,8 +67,8 @@ const Orders = () => {
                                             <br />
                                             <br />
                                             <p>
-                                            {AccountData[0]['delivery_address'][value.delivery_address_id].address}
-                                              
+                                                {AccountData[0]['delivery_address'][value.delivery_address_id].address}
+
                                             </p>
                                         </div>
                                         <div className='order-item-shipping-details p-3'>
