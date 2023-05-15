@@ -1,24 +1,47 @@
 .account-without-data {
-  position:absolute;
+  position: absolute;
   left: 70px;
-  top:122px;
+  top: 122px;
 }
 
-.btn-primary{
-  background-color: #2398E8 !important;;
+.btn-primary {
+  background-color: #2398E8 !important;
+  ;
 }
 
 .return-order-item-buttons {
-  width:100em ;
+  width: 100em;
 }
 
 .container-tables {
   display: grid;
-  position:relative;
-  left:41px;
+  position: relative;
+
+  left: 41px;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   grid-gap: 4em;
+}
+
+@media screen and (max-width: 1465px) {
+  .container-tables {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4em;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .container-tables {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .container-tables {
+    grid-template-columns: 5fr;
+    grid-gap: 4em;
+  }
 }
 
 .account-btn-add {
@@ -28,67 +51,84 @@
   position: absolute;
   top: 50%;
   left: 45%;
-  margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+  margin: -25px 0 0 -25px;
+  /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #ffffff;
 }
+
 .background {
   background: #f6f9fc;
   padding: 50px 0;
 }
+
 .container {
   max-width: 90%;
   margin: auto;
 }
+
 .d_flex {
   display: flex;
   justify-content: space-between;
 }
+
 .c_flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .f_flex {
   display: flex;
 }
+
 a {
   text-decoration: none;
   color: black;
 }
+
 li {
   list-style: none;
 }
+
 .uppercase {
   text-transform: uppercase;
 }
+
 .capitalize {
   text-transform: capitalize;
 }
+
 .RText {
   text-align-last: right;
 }
+
 input,
 button {
   border: none;
   outline: none;
   background-color: none;
 }
+
 .row {
   width: 50%;
 }
+
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -99,7 +139,7 @@ button {
   border-radius: 50%;
 }
 
-.icon-nav{
+.icon-nav {
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -125,14 +165,17 @@ button {
   margin-top: 10px;
   object-fit: contain;
 }
+
 .category span {
   margin: 10px 20px;
   text-transform: capitalize;
 }
+
 .category .box {
   transition: 0.5s;
   padding: 0 20px;
 }
+
 .category .box:hover {
   background-color: #ffe1e6;
   cursor: pointer;
@@ -145,16 +188,20 @@ button {
   color: #fff;
   border-radius: 5px;
 }
+
 .top {
   margin-top: 80px;
 }
+
 .mtop {
   margin-top: 40px;
 }
+
 .heading i {
   color: #e94560;
   margin: 10px;
 }
+
 .discount {
   position: absolute;
   top: 0;
@@ -166,6 +213,7 @@ button {
   color: #fff;
   margin: 10px;
 }
+
 /*---------product-----------*/
 .product {
   background: #fff;
@@ -175,20 +223,24 @@ button {
   box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
   margin: 10px;
 }
+
 .product h3 {
   font-weight: 400;
   font-size: 17px;
 }
+
 .product .rate i {
   font-size: 15px;
   color: #ffcd4e;
   margin: 5px 5px 5px 0;
 }
+
 .product .price {
   display: flex;
   justify-content: space-between;
   color: #e94560;
 }
+
 .price button {
   background: none;
   color: #e94560;
@@ -199,11 +251,13 @@ button {
   height: 35px;
   border-radius: 5px;
 }
+
 .price button:hover {
   cursor: pointer;
   background-color: #e94560;
   color: #fff;
 }
+
 .product-like {
   position: absolute;
   top: 0;
@@ -212,6 +266,7 @@ button {
   opacity: 0;
   transition: 0.5s;
 }
+
 .product-like label {
   background-color: #0f3460;
   padding: 1px 10px;
@@ -219,13 +274,16 @@ button {
   color: white;
   border-radius: 50px;
 }
+
 .product-like i {
   font-size: 20px;
   margin: 10px 3px;
 }
+
 .product:hover .product-like {
   opacity: 1;
 }
+
 /*---------product-----------*/
 /*----- control btn -------*/
 .control-btn .next,
@@ -240,18 +298,22 @@ button {
   transform: 0.5s;
   z-index: 5;
 }
+
 .control-btn .prev {
   left: -20px;
 }
+
 .control-btn .next {
   right: -20px;
 }
+
 .control-btn .prev i,
 .control-btn .next i {
   font-size: 20px;
   transition: 0.5s;
   color: #fff;
 }
+
 .control-btn .prev:hover,
 .control-btn .next:hover {
   background: #e94560;
@@ -262,21 +324,25 @@ button {
 .heading .heading-left i {
   font-size: 30px;
 }
+
 .heading .heading-left h2 {
   font-size: 25px;
   margin: 5px;
 }
+
 .heading .heading-right i,
 .heading .heading-right {
   text-align: right;
   color: grey;
 }
+
 /*----- heading -------*/
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 30px;
 }
+
 .grid2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -284,13 +350,13 @@ button {
 }
 
 
-.card-header{
+.card-header {
   background: #E2F4FF !important;
 }
 
 
 
 
-.btn-color-primary-startlight{
-  background-color: #e82323; 
+.btn-color-primary-startlight {
+  background-color: #e82323;
 }
