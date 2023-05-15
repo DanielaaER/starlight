@@ -10,13 +10,13 @@ import AuthService from "../../services/auth.service";
 import './login.css';
 
 
-const LoginPass = ({ usuario }) => {
 
-    console.log(usuario)
+const Verify = () => {
 
-    const user = usuario;
-    const [password, setPassword] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado que indica si el usuario está autenticado
+
+    const [code, setCode] = useState("")
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     const navigate = useNavigate();
 
 
@@ -38,22 +38,29 @@ const LoginPass = ({ usuario }) => {
     }, [navigate]);
 
     const handleLogin = async (e) => {
-        /* e.preventDefault();
-         try {
-             await AuthService.login(email, password).then(
-                 () => {*/
-        setIsLoggedIn(true); // actualizar el estado a true
-        navigate("/loginPass");
-        window.location.reload();
-        /*  },
-          (error) => {
-              console.error(error);
-          }
-      );
-  } catch (err) {
-      console.log(err);
-  }*/
+        e.preventDefault();
+        try {
+            if (code === "123a") {
+                console.log("valido")
+                setIsLoggedIn(true); // actualizar el estado a true
+                navigate("/");
+                window.location.reload();
+            } else {
+                handleCodeResend();
+            }
+        } catch (err) {
+            console.log(err);
+        }
     };
+
+
+    const [alertStyle, setAlertStyle] = useState({ backgroundColor: "", color: "", fontFamily: "" });
+
+    const handleCodeResend = () => {
+        alert("Código reenviado");
+        setAlertStyle({ backgroundColor: "#B3D3E5", color: "white", fontFamily: "Poppins" });
+    };
+
 
     return (
         <>
@@ -61,7 +68,7 @@ const LoginPass = ({ usuario }) => {
                 {isLoggedIn ? (
                     <div>
                         <h1>You are already logged in!</h1>
-                        <Button onClick={() => navigate("/dashboard/admin/section/user")}>Go to Dashboard</Button>
+                        <Button onClick={() => navigate("/")}>Go to Dashboard</Button>
                     </div>
                 ) : (
                     <div className="login-container">
@@ -70,32 +77,19 @@ const LoginPass = ({ usuario }) => {
                                 <img src={logo_footer} alt='startlight' />
                             </a>
                         </div>
-                        <h1>Iniciar Sesión</h1>
+                        <h1>Verifica tu identidad </h1>
 
                         <Form className="form-container" onSubmit={handleLogin}>
                             <Form.Group className="input-container">
-                                <Form.Label>Usuario:</Form.Label>
-                                <Form.Control className="input" type="text" placeholder="username" required value={user} readOnly />
-                            </Form.Group>
-                            <Form.Group className="input-container">
-                                <Form.Label >Contraseña:</Form.Label>
-                                <Form.Control className="input" type="password" placeholder="contraseña" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <Form.Text className="text-muted">
-                                    <Link to='/forgot'> ¿Olvidaste la contraseña? </Link>
-                                </Form.Text>
-
-                                <Form.Control.Feedback type="invalid">
-                                    Porfavor ingresa una contraseña valida.
-                                </Form.Control.Feedback>
+                                <Form.Label>Ingresa el codigo:</Form.Label>
+                                <Form.Control className="input" type="text" placeholder="code" required value={code} onChange={(e) => setCode(e.target.value)} />
                             </Form.Group>
 
                             <div className="button-container">
 
-                                <button className="continue-btn" type="submit">Continuar</button>
+                                <button className="continue-btn" type="submit">Crea una cuenta</button>
 
-                                <button className="continue-btn" type="submit">Iniciar sesion con codigo</button>
-
-                                <button className="register-btn" onClick={() => navigate("/signup")}>Registrarse</button>
+                                <button className="register-btn" onClick={handleCodeResend}>Reenvia el codigo</button>
                             </div>
 
                         </Form>
@@ -114,7 +108,7 @@ const LoginPass = ({ usuario }) => {
     )
 }
 
-export default LoginPass
+export default Verify
 
 
 

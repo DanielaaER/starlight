@@ -7,8 +7,7 @@ import Account from "./common/Account/Account"
 import Footer from "./common/footer/Footer"
 import Login from "./components/login/login"
 import Signup from "./components/signup/signup"
-import LoginPass from "./components/login/loginPass"
-
+import Verify from "./components/login/verify"
 function App() {
   /*
   step1 :  const { productItems } = Data 
@@ -82,6 +81,8 @@ function App() {
           <Route path='/login' element={<Login />} />
 
           <Route path='/signup' element={<Signup />} />
+          
+          <Route path='/verify' element={<Verify />} />
 
 
         </Routes>
