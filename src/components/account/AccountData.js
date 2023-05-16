@@ -8,10 +8,15 @@ const AccountData = [
         email: "leonardo.m2349@gmail.com",
         delivery_address: [
             {
+
                 id: 1,
-                name: "Dirección principal",
+                name: "Facturacion principal",
+                country: "Mexico",
                 telephone: "234 456 78 34",
                 address: "Calle 1 Avenida ",
+                city: "Cordoba",
+                estate: "Veracruz",
+                cp: "090909"
             },
             {
                 id: 2,
@@ -118,6 +123,41 @@ const AccountData = [
                 status: "devuelto"
             }
         ],
+        bills_data: [
+            {
+                id: 1,
+                persona: "Persona fisica",
+                name: "Facturacion principal",
+                razon: "Daniela Espinosa",
+                rfc: "XXXX0000XX0",
+                telephone: "234 456 78 34",
+                address: "Calle 1 Avenida ",
+                city: "Cordoba",
+                estate: "Veracruz",
+                cp: "090909",
+                regimen: "Sin obligaciones fiscales",
+                cfdi: "1",
+                pago: "efectivo",
+                email: "correo@mail.com"
+
+            }, {
+                id: 2,
+                persona: "Persona moral",
+                name: "Facturacion empresa",
+                razon: "Starlight ",
+                rfc: "XXXX0000XX0",
+                telephone: "234 456 78 34",
+                address: "Calle 1 Avenida ",
+                city: "Cordoba",
+                estate: "Veracruz",
+                cp: "09090",
+                regimen: "Régimen general",
+                cfdi: "1",
+                pago: "efectivo",
+                email: "correo@mail.com"
+
+            },
+        ]
     }
 ]
 

@@ -23,6 +23,10 @@
   grid-gap: 4em;
 }
 
+.tab-content{
+  margin-top: 5%;
+}
+
 @media screen and (max-width: 1465px) {
   .container-tables {
     grid-template-columns: repeat(3, 1fr);

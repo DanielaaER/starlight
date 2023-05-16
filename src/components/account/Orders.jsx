@@ -48,46 +48,70 @@ const Orders = () => {
                             <div className='container d_flex'>
                                 <div className='order-details'>
                                     <div className='order-list product d_flex'>
-                                        <div className='img-orders'>
-                                            <img src={value.url_img} style={{ width: "10em" }} alt='' />
-                                        </div>
-                                        
-                                        <div className='order-details p-3'>
-                                            <h3><b>{value.name}</b></h3>
-                                            <p>
-                                                {value.description}
-                                            </p>
+                                        <div className="estatus">
+
+
                                         </div>
 
-                                        <div className='order-item-price p-3'>
-                                            <strong>${value.price}</strong>
-                                        </div>
-                                        <div className='order-item-shipping-details p-3'>
-                                            <strong>{AccountData[0].name}</strong>
-                                            <br />
-                                            <br />
-                                            <p>
-                                                {AccountData[0]['delivery_address'][value.delivery_address_id].address}
 
-                                            </p>
-                                        </div>
-                                        <div className='order-item-shipping-details p-3'>
-                                            <strong>{value.status.toUpperCase()}</strong>
-                                        </div>
-                                        <div className='order-item-delivery-date  p-3'>
+                                        <div className="estatus">
                                             <h6>
                                                 {value.delivery_date}
                                             </h6>
-                                            <div className="d-grid gap-2">
-                                                <Button variant="primary" size="md">
-                                                    Volver a comprar
-                                                </Button>
-                                                <Button variant="secondary" size="md">
-                                                    Devolver
-                                                </Button>
-                                            </div>
+                                            <Button className="orden" variant="primary" size="md">
+                                                Volver a comprar
+                                            </Button>
+
+                                            {(() => {
+                                                if (value.status.toUpperCase() === "ENTREGADO") {
+                                                    return <Button className="orden" variant="secondary" size="md">
+                                                        Devolver
+                                                    </Button>
+                                                }
+
+
+                                            })()}
                                         </div>
+
+
+
+                                        <div className="acomodo">
+
+                                            <div className='img-orders'>
+                                                <img src={value.url_img} style={{ width: "100%" }} alt='' />
+                                            </div>
+
+                                            <div className="detalles">
+                                                <div className="informacion">
+                                                    <strong>{value.status.toUpperCase()}</strong>
+                                                    <br></br>
+                                                    <div className="detalles-producto">
+
+                                                        <h3><b>{value.name}</b></h3>
+                                                        <h3><strong>${value.price}</strong></h3>
+                                                    </div>
+                                                    <br></br>
+                                                </div>
+                                            </div>
+                                            <div className="detalles">
+                                                <strong>{AccountData[0].name}</strong>
+                                                <br></br>
+
+                                                <p>
+                                                    {AccountData[0]['delivery_address'][value.delivery_address_id].address}
+
+                                                </p>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <p>
+                                            {value.description}
+                                        </p>
                                     </div>
+
                                 </div>
                             </div>
                         </section>
