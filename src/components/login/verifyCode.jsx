@@ -40,18 +40,18 @@ const Verify = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-          if (code === "123a") {
-            console.log("valido")
-            setIsLoggedIn(true); // actualizar el estado a true
-            navigate("/");
-            window.location.reload();
-          } else {
-            handleCodeResend();
-          }
+            if (code === "123a") {
+                console.log("valido")
+                setIsLoggedIn(true); // actualizar el estado a true
+                navigate("/");
+                window.location.reload();
+            } else {
+                handleCodeResend();
+            }
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
 
     const [alertStyle, setAlertStyle] = useState({ backgroundColor: "", color: "", fontFamily: "" });
@@ -87,9 +87,10 @@ const Verify = () => {
 
                             <div className="button-container">
 
-                                <button className="continue-btn" type="submit">Crea una cuenta</button>
+                                <button className="continue-btn" type="submit">Continuar</button>
 
-                                <button className="register-btn" onClick={handleCodeResend}>Reenvia el codigo</button>
+                                <button className="register-btn" onClick={handleCodeResend}>Reenvia el codigo</button> 
+                                <button className="continue-btn" type="submit" onClick={() => navigate("/login")} >Iniciar sesion con contraseña</button>
                             </div>
 
                         </Form>

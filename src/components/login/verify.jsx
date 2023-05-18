@@ -97,6 +97,7 @@ const Verify = () => {
 
 
                         <p className="or-label">O inicia sesión con:</p>
+                                <button className="continue-btn" type="submit" onClick={() => navigate("/login")} >con contraseña</button>
                         <div className="logo-container">
                             <i className='fab fa-google'></i>
                             <i className='fab fa-facebook-f'></i>
