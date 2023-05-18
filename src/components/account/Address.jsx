@@ -16,33 +16,33 @@ const Address = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    if (AccountData[0]["delivery_address"].length == 0) {
-        return <>
-            <Row className="justify-content-md-center">
-                <Col className="p-4">
-                    <Container className="container-tables">
-                        <Card border="info" style={{ width: '18rem' }}>
+    if(AccountData[0]["delivery_address"].length == 0){
+        return  <>
+        <Row className="justify-content-md-center">
+            <Col className="p-4">
+                <Container className="container-tables">
+                    <Card border="info" style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Text className="">
+                            No tienes direcciones registradas :(
+                             <br />
+                            Ingresa una para poder comprar
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card border="info" style={{ width: '18rem', height: '18rem' }} >
                             <Card.Body>
-                                <Card.Text className="">
-                                    No tienes direcciones registradas :(
-                                    <br />
-                                    Ingresa una para poder comprar
+                            <Card.Text>
+                                <div className="account-without-data">
+                                    <Button variant="primary">Agregar dirección</Button>
+                                </div>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card border="info" style={{ width: '18rem', height: '18rem' }} >
-                            <Card.Body>
-                                <Card.Text>
-                                    <div className="account-without-data">
-                                        <Button variant="primary">Agregar dirección</Button>
-                                    </div>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Container>
-                </Col>
-            </Row>
-        </>
+                </Container>
+            </Col>
+        </Row>
+    </>
     }
 
 
@@ -118,15 +118,15 @@ const Address = () => {
                             )
                         })}
 
-
-
+                        
+                        
 
                         <Card border="info" style={{ width: '18rem', height: '18rem' }} >
                             <Card.Body>
-                                <Card.Text>
-                                    <div className="account-btn-add">
-                                        <Button variant="primary">Agregar</Button>
-                                    </div>
+                            <Card.Text>
+                                <div className="account-btn-add">
+                                    <Button variant="primary">Agregar</Button>
+                                </div>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

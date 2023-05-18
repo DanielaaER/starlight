@@ -1,0 +1,147 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 200px;
+}
+
+login .fab {
+    font-size: 30px;
+    padding: 20px;
+    color: #1B5A7D;
+
+}
+
+
+login .logo {
+    margin-bottom: 40px;
+}
+
+login .login h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #1B5A7D;
+}
+
+login .form-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+login .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+login label {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+login input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 0px 25px;
+    gap: 10px;
+
+    height: 46px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+}
+
+login .button-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+
+login button:hover {
+    background-color: #FFFFFF;
+
+    border: 3px solid #0865B5;
+    color: #0865B5;
+}
+
+
+login button {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 16px;
+
+}
+
+login .continue-btn {
+    color: white;
+    padding: 10px;
+    background: #0865B5;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    /* Agregamos un margen inferior de 10 píxeles */
+}
+
+login .register-btn {
+    padding: 10px;
+    background: #0865B5;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 10px;
+    /* Agregamos un margen inferior de 10 píxeles */
+}
+
+login .or-label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    /* identical to box height */
+
+
+    color: #3A3A3A;
+
+}
+
+login .logo-container {
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin-bottom: 20px;
+    ;
+}
+
+
+@media (max-width: 768px) {
+    login .login-container {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    login h1 {
+        font-size: 24px;
+    }
+
+    login .form-container {
+        max-width: 300px;
+    }
+
+    login label {
+        font-size: 16px;
+    }
+
+    login input {
+        font-size: 14px;
+    }
+
+
+
+}
