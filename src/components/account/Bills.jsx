@@ -15,6 +15,12 @@ const Bills = () => {
     const handleShow = () => setShow(true);
     const handleAgregar = () => setShow(false);
 
+
+
+    const [defaultValue, setDefaultValue] = useState({ persona: '' });
+
+   
+
     if (AccountData[0]["delivery_address"].length == 0) {
         return <>
             <Row className="justify-content-md-center">
@@ -102,19 +108,21 @@ const Bills = () => {
                                                     <Form.Select
                                                         type="text"
                                                         placeholder="Selecciona tu tipo de persona fiscal"
-                                                        value={value.persona}
+                                                        defaultValue={value.persona}
+                                                        onChange={(event) => setDefaultValue({ ...defaultValue, regimen: event.target.value.persona })}
                                                     >
-                                                        <option value="">Selecciona tu tipo de persona</option>
-                                                        <option value="Persona fisica">Persona fisica</option>
-                                                        <option value="Persona fisica">Persona moral</option>
+                                                        <option defaultValue="">Selecciona tu tipo de persona</option>
+                                                        <option defaultValue="Persona fisica">Persona fisica</option>
+                                                        <option defaultValue="Persona moral">Persona moral</option>
                                                     </Form.Select>
                                                 </Form.Group>
+
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Razon</Form.Label>
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Tu nombre o nombre de la empresa"
-                                                        value={value.razon}
+                                                        defaultValue={value.razon}
                                                     />
                                                 </Form.Group>
 
@@ -124,31 +132,32 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="XXXX0000XX0"
-                                                        value={value.rfc}
+                                                        defaultValue={value.rfc}
                                                     />
                                                 </Form.Group>
 
-                                                {
-                                                    value.persona.toUpperCase() === "PERSONA FISICA" ? (
 
 
-                                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                            <Form.Label>Regimen Fiscal
-                                                            </Form.Label>
-                                                            <Form.Select
-                                                                type="text"
-                                                                placeholder="Selecciona tu regimen fiscal"
-                                                                value={value.regimen}
-                                                            >
-                                                                <option value="">Selecciona tu regimen fiscal</option>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Regimen Fiscal</Form.Label>
+                                                    <Form.Select
+                                                        type="text"
+                                                        placeholder="Selecciona tu regimen fiscal"
+                                                        defaultvalue={value.regimen}
+                                                        onChange={(event) => setDefaultValue({ ...value, regimen: event.target.value })}
+                                                    >
+                                                        <option value="">Selecciona tu regimen fiscal</option>
+                                                        {value.persona.toUpperCase() === "PERSONA FISICA" && (
+                                                            <>
+
+
+
+                                                            
                                                                 <option value="Sin obligaciones fiscales">Sin obligaciones fiscales</option>
                                                                 <option value="Régimen Simplificado de Confianza">Régimen Simplificado de Confianza</option>
                                                                 <option value="Sueldos y salarios e ingresos asimilados a salarios">Sueldos y salarios e ingresos asimilados a salarios</option>
-
                                                                 <option value="Régimen de Actividades Empresariales y Profesionales">Régimen de Actividades Empresariales y Profesionales</option>
-
                                                                 <option value="Régimen de Incorporación Fiscal">Régimen de Incorporación Fiscal</option>
-
                                                                 <option value="Enajenación de bienes">Enajenación de bienes</option>
                                                                 <option value="Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas">Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
                                                                 <option value="Régimen de Arrendamiento">Régimen de Arrendamiento</option>
@@ -156,23 +165,18 @@ const Bills = () => {
                                                                 <option value="Obtención de premios">Obtención de premios</option>
                                                                 <option value="Dividendos">Dividendos</option>
                                                                 <option value="">Demás ingresos</option>
-                                                            </Form.Select>
-                                                        </Form.Group>
-                                                    ) : (
-                                                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                            <Form.Label>Regimen Fiscal
-                                                            </Form.Label>
-                                                            <Form.Select
-                                                                type="text"
-                                                                placeholder="Selecciona tu regimen fiscal"
-                                                                value={value.regimen}
-                                                            >
+                                                            </>
+                                                        )}
+                                                        {value.persona.toUpperCase() === "PERSONA MORAL" && (
+                                                            <>
                                                                 <option value="Régimen General">Régimen General</option>
                                                                 <option value="Régimen con fines no lucrativos">Régimen con fines no lucrativos</option>
+                                                            </>
+                                                        )}
+                                                    </Form.Select>
+                                                </Form.Group>
 
-                                                            </Form.Select>
-                                                        </Form.Group>
-                                                    )}
+
 
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>CFDI
@@ -180,7 +184,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Uso de CFDI"
-                                                        value={value.cfdi}
+                                                        defaultValue={value.cfdi}
                                                     />
                                                 </Form.Group>
 
@@ -191,7 +195,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Tipo de pago"
-                                                        value={value.pago}
+                                                        defaultValue={value.pago}
                                                     />
                                                 </Form.Group>
 
@@ -202,7 +206,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="email"
                                                         placeholder="correo@example.com"
-                                                        value={value.email}
+                                                        defaultValue={value.email}
                                                     />
                                                 </Form.Group>
 
@@ -214,7 +218,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="calle y avenida"
-                                                        value={value.address}
+                                                        defaultValue={value.address}
                                                     />
                                                 </Form.Group>
 
@@ -225,7 +229,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="ciudad"
-                                                        value={value.city}
+                                                        defaultValue={value.city}
                                                     />
                                                 </Form.Group>
 
@@ -235,7 +239,7 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="estado"
-                                                        value={value.estate}
+                                                        defaultValue={value.estate}
                                                     />
                                                 </Form.Group>
 
@@ -245,14 +249,16 @@ const Bills = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="00000"
-                                                        value={value.cp}
+                                                        defaultValue={value.cp}
                                                     />
                                                 </Form.Group>
 
 
 
                                             </Form>
-                                        </Modal.Body>
+                                        </Modal.Body >
+
+
                                         <Modal.Footer>
                                             <Button variant="secondary" onClick={handleClose}>
                                                 Cancelar
@@ -285,177 +291,12 @@ const Bills = () => {
 
 
 
-                        <Modal show={show} onHide={handleAgregar}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Agregar datos de facturacion</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <Form>
-
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Tipo de persona
-                                        </Form.Label>
-                                        <Form.Select
-                                            type="text"
-                                            placeholder="Selecciona tu tipo de persona fiscal"
-                                           
-                                        >
-                                            <option value="">Selecciona tu tipo de persona</option>
-                                            <option value="Persona fisica">Persona fisica</option>
-                                            <option value="Persona fisica">Persona moral</option>
-                                        </Form.Select>
-                                    </Form.Group>
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Razon</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Tu nombre o nombre de la empresa"
-                                        />
-                                    </Form.Group>
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>RFC
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="XXXX0000XX0"
-                                        />
-                                    </Form.Group>
-
-                                    {
-                                        value.persona.toUpperCase() === "PERSONA FISICA" ? (
-
-
-                                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                <Form.Label>Regimen Fiscal
-                                                </Form.Label>
-                                                <Form.Select
-                                                    type="text"
-                                                    placeholder="Selecciona tu regimen fiscal"
-                                                    value={value.regimen}
-                                                >
-                                                    <option value="">Selecciona tu regimen fiscal</option>
-                                                    <option value="Sin obligaciones fiscales">Sin obligaciones fiscales</option>
-                                                    <option value="Régimen Simplificado de Confianza">Régimen Simplificado de Confianza</option>
-                                                    <option value="Sueldos y salarios e ingresos asimilados a salarios">Sueldos y salarios e ingresos asimilados a salarios</option>
-
-                                                    <option value="Régimen de Actividades Empresariales y Profesionales">Régimen de Actividades Empresariales y Profesionales</option>
-
-                                                    <option value="Régimen de Incorporación Fiscal">Régimen de Incorporación Fiscal</option>
-
-                                                    <option value="Enajenación de bienes">Enajenación de bienes</option>
-                                                    <option value="Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas">Régimen de Actividades Empresariales con ingresos a través de Plataformas Tecnológicas</option>
-                                                    <option value="Régimen de Arrendamiento">Régimen de Arrendamiento</option>
-                                                    <option value="Intereses">Intereses</option>
-                                                    <option value="Obtención de premios">Obtención de premios</option>
-                                                    <option value="Dividendos">Dividendos</option>
-                                                    <option value="">Demás ingresos</option>
-                                                </Form.Select>
-                                            </Form.Group>
-                                        ) : (
-                                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                <Form.Label>Regimen Fiscal
-                                                </Form.Label>
-                                                <Form.Select
-                                                    type="text"
-                                                    placeholder="Selecciona tu regimen fiscal"
-
-                                                >
-                                                    <option value="Régimen General">Régimen General</option>
-                                                    <option value="Régimen con fines no lucrativos">Régimen con fines no lucrativos</option>
-
-                                                </Form.Select>
-                                            </Form.Group>
-                                        )}
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>CFDI
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Uso de CFDI"
-                                        />
-                                    </Form.Group>
-
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Tipo de pago
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Tipo de pago"
-                                        />
-                                    </Form.Group>
-
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Correo electronico
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="email"
-                                            placeholder="correo@example.com"
-                                        />
-                                    </Form.Group>
-
-
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Dirección
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="calle y avenida"
-                                        />
-                                    </Form.Group>
-
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Ciudad
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="ciudad"
-                                        />
-                                    </Form.Group>
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Estado
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="estado"
-                                        />
-                                    </Form.Group>
-
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>Codigo Postal
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="00000"
-                                        />
-                                    </Form.Group>
-
-
-
-                                </Form>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleAgregar}>
-                                    Cancelar
-                                </Button>
-                                <Button variant="primary" onClick={handleAgregar}>
-                                    Guardar
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
 
 
 
                     </Container>
-                </Col>
-            </Row>
+                </Col >
+            </Row >
 
         </>
     )
