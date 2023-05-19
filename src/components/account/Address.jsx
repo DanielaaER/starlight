@@ -13,36 +13,46 @@ const Address = () => {
 
 
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [selectedCard, setSelectedCard] = useState(null);
+    const [selectedPersona, setSelectedPersona] = useState(""); // Estado para almacenar el tipo de persona seleccionado
 
-    if(AccountData[0]["delivery_address"].length == 0){
-        return  <>
-        <Row className="justify-content-md-center">
-            <Col className="p-4">
-                <Container className="container-tables">
-                    <Card border="info" style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Text className="">
-                            No tienes direcciones registradas :(
-                             <br />
-                            Ingresa una para poder comprar
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card border="info" style={{ width: '18rem', height: '18rem' }} >
+    const handleClose = () => setShow(false);
+    const handleShow = (index) => {
+        setSelectedCard(index);
+        setShow(true);
+    };
+    const handleAgregar = () => {
+        setSelectedCard(null);
+        setShow(true);
+    };
+
+    if (AccountData[0]["delivery_address"].length == 0) {
+        return <>
+            <Row className="justify-content-md-center">
+                <Col className="p-4">
+                    <Container className="container-tables">
+                        <Card border="info" style={{ width: '18rem' }}>
                             <Card.Body>
-                            <Card.Text>
-                                <div className="account-without-data">
-                                    <Button variant="primary">Agregar dirección</Button>
-                                </div>
+                                <Card.Text className="">
+                                    No tienes direcciones registradas :(
+                                    <br />
+                                    Ingresa una para poder comprar
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                </Container>
-            </Col>
-        </Row>
-    </>
+                        <Card border="info" style={{ width: '18rem', height: '18rem' }} >
+                            <Card.Body>
+                                <Card.Text>
+                                    <div className="account-without-data">
+                                        <Button variant="primary">Agregar dirección</Button>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Container>
+                </Col>
+            </Row>
+        </>
     }
 
 
@@ -67,7 +77,7 @@ const Address = () => {
                                         </Card.Body>
                                         <Card.Footer className="text-muted">
                                             <div className="d-grid gap-2">
-                                                <Button variant="primary" size="md" onClick={handleShow}>
+                                                <Button variant="primary" size="md" onClick={() => handleShow(index)}>
                                                     Editar
                                                 </Button>
                                                 <Button variant="danger" size="md">
@@ -85,12 +95,20 @@ const Address = () => {
                                         <Modal.Body>
                                             <Form>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Dirección</Form.Label>
+                                                    <Form.Label>Nombre</Form.Label>
                                                     <Form.Control
                                                         type="text"
-                                                        placeholder="Dirección de envío del producto"
-                                                        value={value.address}
+                                                        placeholder="Nombre de la direccion"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.name}
                                                         autoFocus
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Pais</Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Pais"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.country}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -98,9 +116,49 @@ const Address = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Número de contacto"
-                                                        value={value.address}
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.telephone}
                                                     />
                                                 </Form.Group>
+
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Dirección</Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Dirección de envío del producto"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.address}
+                                                        autoFocus
+                                                    />
+                                                </Form.Group>
+
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Ciudady</Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Ciudad"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.city}
+                                                        autoFocus
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Estado</Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Estado"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.estate}
+                                                        autoFocus
+                                                    />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Codigo Postal</Form.Label>
+                                                    <Form.Control
+                                                        type="text"
+                                                        placeholder="Codigo Postal"
+                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.cp}
+                                                        autoFocus
+                                                    />
+                                                </Form.Group>
+
+
                                             </Form>
                                         </Modal.Body>
                                         <Modal.Footer>
@@ -118,15 +176,15 @@ const Address = () => {
                             )
                         })}
 
-                        
-                        
+
+
 
                         <Card border="info" style={{ width: '18rem', height: '18rem' }} >
                             <Card.Body>
-                            <Card.Text>
-                                <div className="account-btn-add">
-                                    <Button variant="primary">Agregar</Button>
-                                </div>
+                                <Card.Text>
+                                    <div className="account-btn-add">
+                                        <Button variant="primary">Agregar</Button>
+                                    </div>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

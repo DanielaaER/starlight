@@ -136,7 +136,7 @@ const AccountData = [
                 estate: "Veracruz",
                 cp: "090909",
                 regimen: "Sin obligaciones fiscales",
-                cfdi: "1",
+                cfdi: "Pagos",
                 pago: "efectivo",
                 email: "correo@mail.com"
 
@@ -151,8 +151,8 @@ const AccountData = [
                 city: "Cordoba",
                 estate: "Veracruz",
                 cp: "09090",
-                regimen: "Régimen general",
-                cfdi: "1",
+                regimen: "Régimen General",
+                cfdi: "CFDI",
                 pago: "efectivo",
                 email: "correo@mail.com"
 
