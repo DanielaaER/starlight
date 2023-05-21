@@ -121,7 +121,7 @@ const ReturnOfOrder = () => {
                                                         <br></br>
 
                                                         <p>
-                                                            {AccountData[0]['delivery_address'][value.delivery_address_id].address}
+                                                            {AccountData[0]['delivery_address'][value.delivery_address_id-1].address}
 
                                                         </p>
                                                         <h6>Entrega: </h6>
@@ -157,7 +157,7 @@ const ReturnOfOrder = () => {
                                                                     <PDFDownloadLink
                                                                         document={
 
-                                                                            <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id]} cliente={AccountData[0].name} />
+                                                                            <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id-1]} cliente={AccountData[0].name} />
 
                                                                         }
                                                                         fileName="EtiquetaDevolucion.pdf"

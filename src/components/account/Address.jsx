@@ -26,6 +26,25 @@ const Address = () => {
         setShow(true);
     };
 
+
+    const [nombre, setNombre] = useState(AccountData[0]["delivery_address"][selectedCard]?.name);
+    const [pais, setPais] = useState(AccountData[0]["delivery_address"][selectedCard]?.country);
+    const [telefono, setTelefono] = useState(AccountData[0]["delivery_address"][selectedCard]?.telephone);
+    const [direccion, setDireccion] = useState(AccountData[0]["delivery_address"][selectedCard]?.address);
+    const [ciudad, setCiudad] = useState(AccountData[0]["delivery_address"][selectedCard]?.city);
+    const [estado, setEstado] = useState(AccountData[0]["delivery_address"][selectedCard]?.estate);
+    const [codigoPostal, setCodigoPostal] = useState(AccountData[0]["delivery_address"][selectedCard]?.cp);
+
+    const handleGuardar = () => {
+        // Aquí puedes realizar la lógica de guardado de los valores actualizados
+        // Puedes acceder a los valores actuales de los estados (nombre, pais, telefono, etc.)
+        // y realizar las acciones necesarias, como enviar una solicitud al servidor o actualizar la base de datos.
+
+        // Luego, cierra el modal
+        handleClose();
+    };
+
+
     if (AccountData[0]["delivery_address"].length == 0) {
         return <>
             <Row className="justify-content-md-center">
@@ -71,6 +90,18 @@ const Address = () => {
                                             <Card.Text>
                                                 <b>Dirección:</b>{value.address}
                                                 <br />
+
+                                                <b>Ciudad:</b>{value.city}
+                                                <br />
+
+                                                <b>CP:</b>{value.cp}
+                                                <br />
+
+                                                <b>Estado:</b> {value.estate}
+                                                <br />
+
+                                                <b>Pais:</b> {value.country}
+                                                <br />
                                                 <b>Telefono:</b>{value.telephone}
                                                 <br />
                                             </Card.Text>
@@ -90,7 +121,7 @@ const Address = () => {
 
                                     <Modal show={show} onHide={handleClose}>
                                         <Modal.Header closeButton>
-                                            <Modal.Title>Editar Dirección de envio</Modal.Title>
+                                            <Modal.Title>Editar Dirección de envío</Modal.Title>
                                         </Modal.Header>
                                         <Modal.Body>
                                             <Form>
@@ -98,17 +129,19 @@ const Address = () => {
                                                     <Form.Label>Nombre</Form.Label>
                                                     <Form.Control
                                                         type="text"
-                                                        placeholder="Nombre de la direccion"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.name}
+                                                        placeholder="Nombre de la dirección"
+                                                        value={nombre}
+                                                        onChange={(e) => setNombre(e.target.value)}
                                                         autoFocus
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Pais</Form.Label>
+                                                    <Form.Label>País</Form.Label>
                                                     <Form.Control
                                                         type="text"
-                                                        placeholder="Pais"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.country}
+                                                        placeholder="País"
+                                                        value={pais}
+                                                        onChange={(e) => setPais(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -116,7 +149,8 @@ const Address = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Número de contacto"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.telephone}
+                                                        value={telefono}
+                                                        onChange={(e) => setTelefono(e.target.value)}
                                                     />
                                                 </Form.Group>
 
@@ -125,18 +159,19 @@ const Address = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Dirección de envío del producto"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.address}
+                                                        value={direccion}
+                                                        onChange={(e) => setDireccion(e.target.value)}
                                                         autoFocus
                                                     />
                                                 </Form.Group>
 
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Ciudady</Form.Label>
+                                                    <Form.Label>Ciudad</Form.Label>
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Ciudad"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.city}
-                                                        autoFocus
+                                                        value={ciudad}
+                                                        onChange={(e) => setCiudad(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -144,28 +179,26 @@ const Address = () => {
                                                     <Form.Control
                                                         type="text"
                                                         placeholder="Estado"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.estate}
-                                                        autoFocus
+                                                        value={estado}
+                                                        onChange={(e) => setEstado(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Codigo Postal</Form.Label>
+                                                    <Form.Label>Código Postal</Form.Label>
                                                     <Form.Control
                                                         type="text"
-                                                        placeholder="Codigo Postal"
-                                                        defaultValue={AccountData[0]["delivery_address"][selectedCard]?.cp}
-                                                        autoFocus
+                                                        placeholder="Código Postal"
+                                                        value={codigoPostal}
+                                                        onChange={(e) => setCodigoPostal(e.target.value)}
                                                     />
                                                 </Form.Group>
-
-
                                             </Form>
                                         </Modal.Body>
                                         <Modal.Footer>
                                             <Button variant="secondary" onClick={handleClose}>
                                                 Cancelar
                                             </Button>
-                                            <Button variant="primary" onClick={handleClose}>
+                                            <Button variant="primary" onClick={handleGuardar}>
                                                 Guardar
                                             </Button>
                                         </Modal.Footer>
@@ -183,7 +216,9 @@ const Address = () => {
                             <Card.Body>
                                 <Card.Text>
                                     <div className="account-btn-add">
-                                        <Button variant="primary">Agregar</Button>
+                                        <Button variant="primary" onClick={handleAgregar}>
+                                            Agregar
+                                        </Button>
                                     </div>
                                 </Card.Text>
                             </Card.Body>
