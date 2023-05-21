@@ -6,8 +6,34 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import AccountData from './AccountData';
 
+import { PDFViewer } from '@react-pdf/renderer';
+import ReturnReport from './ReturnReport';
+import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
+
 
 const ReturnOfOrder = () => {
+
+
+
+
+    // const address = {
+    //     name: "Facturacion principal",
+    //     country: "Mexico",
+    //     telephone: "234 456 78 34",
+    //     address: "Calle 1 Avenida ",
+    //     city: "Cordoba",
+    //     estate: "Veracruz",
+    //     cp: "090909"
+    // }
+
+    // const handlePrintLabel = (producto, address, client) => {
+    //     const report = <ReturnReport product={producto} shippingAddress={address} cliente={client} />
+    //     const blob = new Blob([report], { type: 'application/pdf' });
+    //     const url = URL.createObjectURL(blob);
+    //     window.open(url);
+    // };
+
+
 
     if (AccountData[0]["order_list"].length == 0) {
         return <>
@@ -73,11 +99,19 @@ const ReturnOfOrder = () => {
 
                                                             <div className="detalles-producto">
 
-                                                                <h3>Entrega: </h3>
+                                                                <h3>Cantidad: </h3>
                                                                 <h6>
-                                                                    {value.delivery_date}
+                                                                    {value.quantity}
                                                                 </h6>
-                                                                <br></br>
+
+                                                            </div>
+                                                            <div className="detalles-producto">
+
+                                                                <h6>Total a pagar:</h6>
+
+                                                                <h6>
+                                                                    ${value.quantity * value.price}
+                                                                </h6>
                                                             </div>
 
                                                         </div>
@@ -90,7 +124,10 @@ const ReturnOfOrder = () => {
                                                             {AccountData[0]['delivery_address'][value.delivery_address_id].address}
 
                                                         </p>
-
+                                                        <h6>Entrega: </h6>
+                                                        <h3>
+                                                            {value.delivery_date}
+                                                        </h3>
 
                                                     </div>
 
@@ -103,13 +140,55 @@ const ReturnOfOrder = () => {
 
 
                                                 <div className="estatus">
+
                                                     {(() => {
                                                         if (value.status.toUpperCase() === "EN PROCESO DE DEVOLUCIÓN") {
                                                             return <div className='return-order-item-buttons'>
                                                                 <div className="d-grid gap-2">
-                                                                    <Button variant="primary" size="md">
-                                                                        Imprimir etiqueta de devolucion
+                                                                    {/* <Button
+                                                                        variant="primary"
+                                                                        size="md"
+
+                                                                    >
+                                                                        Imprimir etiqueta de devolución
                                                                     </Button>
+ */}
+
+                                                                    <PDFDownloadLink
+                                                                        document={
+
+                                                                            <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id]} cliente={AccountData[0].name} />
+
+                                                                        }
+                                                                        fileName="EtiquetaDevolucion.pdf"
+                                                                    >
+                                                                        {({ blob, url, loading, error }) =>
+                                                                            loading ?
+
+                                                                                <div className="d-grid gap-2">
+                                                                                    <Button
+                                                                                        variant="primary"
+                                                                                        size="md"
+
+                                                                                    >
+                                                                                        Cargando etiqueta
+                                                                                    </Button>
+                                                                                </div> :
+                                                                                <div className="d-grid gap-2">
+                                                                                    <Button
+                                                                                        variant="primary"
+                                                                                        size="md"
+
+                                                                                    >
+                                                                                        Imprimir etiqueta de devolución
+                                                                                    </Button>
+                                                                                </div>
+                                                                        }
+                                                                    </PDFDownloadLink>
+
+                                                                    {/* <PDFViewer width="800" height="600">
+                                                                        <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id]} cliente={AccountData[0].name} />
+                                                                    </PDFViewer> */}
                                                                     <Button variant="secondary" size="md">
                                                                         Cancelar devolucion
                                                                     </Button>
@@ -136,7 +215,7 @@ const ReturnOfOrder = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section >
 
                             </>
                         )
