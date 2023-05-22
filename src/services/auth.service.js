@@ -1,30 +1,14 @@
-import axios from 'axios';
+const logout = () => {
+    localStorage.removeItem("token");
+};
 
-const API_URL = 'https://apigraphqlecommerce-service-leo-oh.cloud.okteto.net/graphql';
+const getCurrentUser = () => {
+    return JSON.parse(localStorage.getItem("token"));
+};
 
-class AuthService {
-  login(email, password) {
-    return axios
-      .post(API_URL + 'users/signin', {
-        email,
-        password
-      })
-      .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-        }
+const authService = {
+    logout,
+    getCurrentUser,
+};
 
-        return response.data;
-      });
-  }
-
-  logout() {
-    localStorage.removeItem('user');
-  }
-
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));
-  }
-}
-
-export default new AuthService();
+export default authService;
