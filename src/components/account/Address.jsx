@@ -11,157 +11,131 @@ import Modal from 'react-bootstrap/Modal';
 
 const Address = () => {
 
+    const initialNombre = AccountData[0]['delivery_address'][selectedCard]?.name;
+    const initialPais = AccountData[0]['delivery_address'][selectedCard]?.country;
+    const initialTelefono = AccountData[0]['delivery_address'][selectedCard]?.telephone;
+    const initialDireccion = AccountData[0]['delivery_address'][selectedCard]?.address;
+    const initialCiudad = AccountData[0]['delivery_address'][selectedCard]?.city;
+    const initialEstado = AccountData[0]['delivery_address'][selectedCard]?.estate;
+    const initialCodigoPostal = AccountData[0]['delivery_address'][selectedCard]?.cp;
+
+    const [nombre, setNombre] = useState(initialNombre);
+    const [pais, setPais] = useState(initialPais);
+    const [telefono, setTelefono] = useState(initialTelefono);
+    const [direccion, setDireccion] = useState(initialDireccion);
+    const [ciudad, setCiudad] = useState(initialCiudad);
+    const [estado, setEstado] = useState(initialEstado);
+    const [codigoPostal, setCodigoPostal] = useState(initialCodigoPostal);
+
+
 
     const [show, setShow] = useState(false);
     const [showAgregar, setShowAgregar] = useState(false);
     const [selectedCard, setSelectedCard] = useState(null);
 
-    const handleClose = () => setShow(false)
-    const handleCloseAgregar = () => setShowAgregar(false);
+    const handleClose = () => {
+        if (show) {
+            setShow(false);
+        }
+    };
+
+
     const handleShow = (index) => {
         setSelectedCard(index);
         setShow(true);
     };
 
+    const handleGuardar = () => {
 
-
-
-
-    const handleAgregar = () => {
-        // Crea una copia de AccountData
-        setShowAgregar(true);
-        const updatedAccountData = [...AccountData];
-
-        // Obtiene los valores ingresados en el modal
-        const newNombre = nombre.trim();
-        const newPais = pais.trim();
-        const newTelefono = telefono.trim();
-        const newDireccion = direccion.trim();
-        const newCiudad = ciudad.trim();
-        const newEstado = estado.trim();
-        const newCodigoPostal = codigoPostal.trim();
-
-        // Crea una nueva tarjeta con los valores ingresados
-        const newCard = {
-            name: newNombre,
-            country: newPais,
-            telephone: newTelefono,
-            address: newDireccion,
-            city: newCiudad,
-            estate: newEstado,
-            cp: newCodigoPostal
+        const datosActualizados = {
+            delivery_address: {
+                [selectedCard]: {
+                    name: nombre,
+                    country: pais,
+                    telephone: telefono,
+                    address: direccion,
+                    city: ciudad,
+                    estate: estado,
+                    cp: codigoPostal,
+                },
+            },
         };
 
-        // Agrega la nueva tarjeta al arreglo de direcciones de entrega
-        updatedAccountData[0]["delivery_address"].push(newCard);
+        // Realizar acciones con los datos actualizados
+        // ...
 
-        // Establece la nueva tarjeta como seleccionada
-        setSelectedCard(updatedAccountData[0]["delivery_address"].length - 1);
+        // Cerrar el Modal
+        handleClose();
+    };
 
-        // Actualiza el estado local con los nuevos valores
-        setNombre(newNombre);
-        setPais(newPais);
-        setTelefono(newTelefono);
-        setDireccion(newDireccion);
-        setCiudad(newCiudad);
-        setEstado(newEstado);
-        setCodigoPostal(newCodigoPostal);
 
-        // Cierra el modal
+
+    const [localData, setLocalData] = useState(AccountData);
+
+
+
+    const handleShowAgregar = () => {
+        const updatedData = [...localData];
+        setSelectedCard(updatedData[0]["delivery_address"].length);
+        setShowAgregar(true);
+    };
+
+    const handleAgregar = () => {
+        const updatedData = [...localData];
+        const newCard = {
+            name: nombre,
+            country: pais,
+            telephone: telefono,
+            address: direccion,
+            city: ciudad,
+            estate: estado,
+            cp: codigoPostal
+        };
+        updatedData[0]["delivery_address"].push(newCard);
+        setLocalData(updatedData);
         handleCloseAgregar();
     };
 
-
-    // const [nombre, setNombre] = useState('');
-    // const [pais, setPais] = useState('');
-    // const [telefono, setTelefono] = useState('');
-    // const [direccion, setDireccion] = useState('');
-    // const [ciudad, setCiudad] = useState('');
-    // const [estado, setEstado] = useState('');
-    // const [codigoPostal, setCodigoPostal] = useState('');
-    // const initialAccountData = [...AccountData];
-
-
-    const [nombre, setNombre] = useState(AccountData[0]["delivery_address"][selectedCard]?.name);
-    const [pais, setPais] = useState(AccountData[0]["delivery_address"][selectedCard]?.country);
-    const [telefono, setTelefono] = useState(AccountData[0]["delivery_address"][selectedCard]?.telephone);
-    const [direccion, setDireccion] = useState(AccountData[0]["delivery_address"][selectedCard]?.address);
-    const [ciudad, setCiudad] = useState(AccountData[0]["delivery_address"][selectedCard]?.city);
-    const [estado, setEstado] = useState(AccountData[0]["delivery_address"][selectedCard]?.estate);
-    const [codigoPostal, setCodigoPostal] = useState(AccountData[0]["delivery_address"][selectedCard]?.cp);
-
-    const handleGuardar = () => {
-        // Crea una copia de AccountData
-        const updatedAccountData = [...AccountData];
-
-        console.log(updatedAccountData[0]["delivery_address"][selectedCard].name)
-        // Obtiene los valores actuales de los campos
-        let newNombre = nombre ? nombre.trim() : '';
-        let newPais = pais ? pais.trim() : '';
-        let newTelefono = telefono ? telefono.trim() : '';
-        let newDireccion = direccion ? direccion.trim() : '';
-        let newCiudad = ciudad ? ciudad.trim() : '';
-        let newEstado = estado ? estado.trim() : '';
-        let newCodigoPostal = codigoPostal ? codigoPostal.trim() : '';
-
-        // Verifica si los valores han cambiado
-        const isNombreChanged = newNombre !== AccountData[0]["delivery_address"][selectedCard]?.name && newNombre !== '';
-        const isPaisChanged = newPais !== AccountData[0]["delivery_address"][selectedCard]?.country && newPais !== '';
-        const isTelefonoChanged = newTelefono !== AccountData[0]["delivery_address"][selectedCard]?.telephone && newTelefono !== '';
-        const isDireccionChanged = newDireccion !== AccountData[0]["delivery_address"][selectedCard]?.address && newDireccion !== '';
-        const isCiudadChanged = newCiudad !== AccountData[0]["delivery_address"][selectedCard]?.city && newCiudad !== '';
-        const isEstadoChanged = newEstado !== AccountData[0]["delivery_address"][selectedCard]?.estate && newEstado !== '';
-        const isCodigoPostalChanged = newCodigoPostal !== AccountData[0]["delivery_address"][selectedCard]?.cp && newCodigoPostal !== '';
-
-        // Actualiza los valores correspondientes en la copia de AccountData solo si han cambiado
-        if (isNombreChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].name = newNombre;
-        } else {
-            newNombre = updatedAccountData[0]["delivery_address"][selectedCard].name;
-        }
-        if (isPaisChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].country = newPais;
-        } else {
-            newPais = updatedAccountData[0]["delivery_address"][selectedCard].country;
-        }
-        if (isTelefonoChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].telephone = newTelefono;
-        } else {
-            newTelefono = updatedAccountData[0]["delivery_address"][selectedCard].telephone;
-        }
-        if (isDireccionChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].address = newDireccion;
-        } else {
-            newDireccion = updatedAccountData[0]["delivery_address"][selectedCard].address;
-        }
-        if (isCiudadChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].city = newCiudad;
-        } else {
-            newCiudad = updatedAccountData[0]["delivery_address"][selectedCard].city;
-        }
-        if (isEstadoChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].estate = newEstado;
-        } else {
-            newEstado = updatedAccountData[0]["delivery_address"][selectedCard].estate;
-        }
-        if (isCodigoPostalChanged) {
-            updatedAccountData[0]["delivery_address"][selectedCard].cp = newCodigoPostal;
-        } else {
-            newCodigoPostal = updatedAccountData[0]["delivery_address"][selectedCard].cp;
-        }
-
-        // Actualiza el estado local con los nuevos valores
-        setNombre(newNombre);
-        setPais(newPais);
-        setTelefono(newTelefono);
-        setDireccion(newDireccion);
-        setCiudad(newCiudad);
-        setEstado(newEstado);
-        setCodigoPostal(newCodigoPostal);
-
-        // Cierra el modal
-        handleClose();
+    const handleCloseAgregar = () => {
+        setShowAgregar(false);
+        setNombre("");
+        setPais("");
+        setTelefono("");
+        setDireccion("");
+        setCiudad("");
+        setEstado("");
+        setCodigoPostal("");
     };
+
+
+
+    // const handleGuardar = () => {
+    //     // Crea una copia de AccountData
+
+
+    //     // Actualiza el estado local con los nuevos valores
+
+    //     // Abre el modal de agregar
+
+    //     const updatedAccountData = [...AccountData];
+
+    //     console.log(updatedAccountData[0]["delivery_address"][selectedCard].name)
+    //     // Obtiene los valores actuales de los campos
+    //     console.log(pais);
+
+    //     // Actualiza el estado local con los nuevos valores
+    //     setNombre(nombre);
+    //     console.log(nombre);
+    //     setPais(pais);
+    //     setTelefono(telefono);
+    //     setDireccion(direccion);
+    //     setCiudad(ciudad);
+    //     setEstado(estado);
+    //     setCodigoPostal(codigoPostal);
+
+    //     // Cierra el modal
+    //     handleClose();
+    // };
 
 
     if (AccountData[0]["delivery_address"].length == 0) {
@@ -250,7 +224,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Nombre de la dirección"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.name}
-                                                        onChange={(e) => setNombre(e.target.value)}
                                                         autoFocus
                                                     />
                                                 </Form.Group>
@@ -260,7 +233,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="País"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.country}
-                                                        onChange={(e) => setPais(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -269,7 +241,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Número de contacto"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.telephone}
-                                                        onChange={(e) => setTelefono(e.target.value)}
                                                     />
                                                 </Form.Group>
 
@@ -279,7 +250,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Dirección de envío del producto"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.address}
-                                                        onChange={(e) => setDireccion(e.target.value)}
                                                         autoFocus
                                                     />
                                                 </Form.Group>
@@ -290,7 +260,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Ciudad"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.city}
-                                                        onChange={(e) => setCiudad(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -299,7 +268,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Estado"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.estate}
-                                                        onChange={(e) => setEstado(e.target.value)}
                                                     />
                                                 </Form.Group>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -308,7 +276,6 @@ const Address = () => {
                                                         type="text"
                                                         placeholder="Código Postal"
                                                         defaultValue={AccountData[0]["delivery_address"][selectedCard]?.cp}
-                                                        onChange={(e) => setCodigoPostal(e.target.value)}
                                                     />
                                                 </Form.Group>
                                             </Form>
@@ -317,7 +284,7 @@ const Address = () => {
                                             <Button variant="secondary" onClick={handleClose}>
                                                 Cancelar
                                             </Button>
-                                            <Button variant="primary" onClick={handleGuardar}>
+                                            <Button variant="primary" onClick={handleClose}>
                                                 Guardar
                                             </Button>
                                         </Modal.Footer>
@@ -334,7 +301,7 @@ const Address = () => {
                             <Card.Body>
                                 <Card.Text>
                                     <div className="account-btn-add">
-                                        <Button variant="primary" onClick={handleAgregar}>
+                                        <Button variant="primary" onClick={handleShowAgregar}>
                                             Agregar
                                         </Button>
                                     </div>
@@ -342,7 +309,7 @@ const Address = () => {
                             </Card.Body>
                         </Card>
 
-                        <Modal show={showAgregar} onHide={handleClose}>
+                        <Modal show={showAgregar} onHide={handleCloseAgregar}>
                             <Modal.Header closeButton>
                                 <Modal.Title>Agrega Dirección de envío</Modal.Title>
                             </Modal.Header>

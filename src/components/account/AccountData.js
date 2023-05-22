@@ -10,7 +10,7 @@ const AccountData = [
             {
 
                 id: 1,
-                name: "Facturacion principal",
+                name: "direccion principal",
                 country: "Mexico",
                 telephone: "234 456 78 34",
                 address: "Calle 1 Avenida ",
