@@ -16,7 +16,6 @@ import Home from "./components/home/home"
 
 
 
-
 function App() {
 
   
@@ -24,7 +23,7 @@ function App() {
   return (
     <>
       {
-      (false) ? (
+      (localStorage.getItem("token")) ? (
           <Router>
           <Header CartItem />
           <Routes>
@@ -32,6 +31,7 @@ function App() {
             <Route path='/cart' element={<Cart />} />
             <Route path='/account' element={<Account />} />
             <Route path='/verify' element={<Verify />} />
+            <Route path='/account' element={<Account />} />
           </Routes>
           <Footer />
         </Router>
