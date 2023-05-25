@@ -49,11 +49,7 @@ const Orders = () => {
                                 <div className='order-details'>
                                     <div className='order-list product d_flex'>
                                         <div className="estatus">
-
-
                                         </div>
-
-
                                         <div className="estatus">
                                             <h6>
                                                 {value.delivery_date}
@@ -68,25 +64,17 @@ const Orders = () => {
                                                         Devolver
                                                     </Button>
                                                 }
-
-
                                             })()}
                                         </div>
-
-
-
                                         <div className="acomodo">
-
                                             <div className='img-orders'>
                                                 <img src={value.url_img} style={{ width: "100%" }} alt='' />
                                             </div>
-
                                             <div className="detalles">
                                                 <div className="informacion">
                                                     <strong>{value.status.toUpperCase()}</strong>
                                                     <br></br>
                                                     <div className="detalles-producto">
-
                                                         <h3><b>{value.name}</b></h3>
                                                         <h3><strong>${value.price}</strong></h3>
                                                     </div>
@@ -96,22 +84,15 @@ const Orders = () => {
                                             <div className="detalles">
                                                 <strong>{AccountData[0].name}</strong>
                                                 <br></br>
-
                                                 <p>
                                                     {AccountData[0]['delivery_address'][value.delivery_address_id].address}
-
                                                 </p>
-
-
                                             </div>
-
                                         </div>
-
                                         <p>
                                             {value.description}
                                         </p>
                                     </div>
-
                                 </div>
                             </div>
                         </section>

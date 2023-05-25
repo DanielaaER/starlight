@@ -158,7 +158,7 @@ const Signup = () => {
 
                             <Form.Group className="input-container">
                                 <Form.Label >Contraseña:</Form.Label>
-                                <Form.Control className="input" type="password" placeholder="contraseña" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                                <Form.Control className="input" type="password" placeholder="contraseña" required value={password}  min={8} onChange={(e) => setPassword(e.target.value)} />
 
 
                                 <Form.Control.Feedback type="invalid">
@@ -219,6 +219,7 @@ const Signup = () => {
                                 placeholder="contraseña" 
                                 required 
                                 value={repeatPassword} 
+                                min={8}
                                 onChange={(e) => setRepeatPassword(e.target.value)} 
                                 isInvalid={confirmPasswordError !== ''}
                                 />
