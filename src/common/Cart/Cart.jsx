@@ -1,72 +1,132 @@
 import React from "react"
-import "./style.css"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import './style.css';
 
-const Cart = ({ CartItem, addToCart, decreaseQty }) => {
-  // Stpe: 7   calucate total of items
-  const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0)
+const Cart = () => {
 
-  // prodcut qty total
   return (
     <>
-      <section className='cart-items'>
-        <div className='container d_flex'>
-          {/* if hamro cart ma kunai pani item xaina bhane no diplay */}
+      <div className="content">
+        <div className="cart ">
+          <div className="p-3 shadow">
 
-          <div className='cart-details'>
-            {CartItem.length === 0 && <h1 className='no-items product'>No Items are add in Cart</h1>}
+            <h4>Productos ⚡<b><i>Express</i></b></h4>
+            <hr />
 
-            {/* yasma hami le cart item lai display garaaxa */}
-            {CartItem.map((item) => {
-              const productQty = item.price * item.qty
 
-              return (
-                <div className='cart-list product d_flex' key={item.id}>
-                  <div className='img'>
-                    <img src={item.cover} alt='' />
-                  </div>
-                  <div className='cart-details'>
-                    <h3>{item.name}</h3>
-                    <h4>
-                      ${item.price}.00 * {item.qty}
-                      <span>${productQty}.00</span>
-                    </h4>
-                  </div>
-                  <div className='cart-items-function'>
-                    <div className='removeCart'>
-                      <button className='removeCart'>
-                        <i className='fa-solid fa-xmark'></i>
-                      </button>
-                    </div>
-                    {/* stpe: 5 
-                    product ko qty lai inc ra des garne
-                    */}
-                    <div className='cartControl d_flex'>
-                      <button className='incCart' onClick={() => addToCart(item)}>
-                        <i className='fa-solid fa-plus'></i>
-                      </button>
-                      <button className='desCart' onClick={() => decreaseQty(item)}>
-                        <i className='fa-solid fa-minus'></i>
-                      </button>
+            <Container>
+              <Row>
+                <Col xxl={8}>
+                  <div className="prooducto-content ">
+                    <div className="producto p-2 shadow ">
+                      <Container>
+                        <Row>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <img src="https://picsum.photos/200/300" width={60} height={60} alt="producto" />
+                          </Col>
+                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <Row xs={1} md={1}>
+                              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
+                              <Col><Button variant="outline-danger">Elminar</Button></Col>
+                            </Row>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <label for="tentacles">Unidades:</label>
+                            <input type="number" id="tentacles" defaultValue={1} name="tentacles" min="1" max="100"></input>
+                          </Col>
+                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            $0.00
+                          </Col>
+                        </Row>
+                      </Container>
                     </div>
                   </div>
+                </Col>
 
-                  <div className='cart-item-price'></div>
-                </div>
-              )
-            })}
-          </div>
 
-          <div className='cart-total product'>
-            <h2>Cart Summary</h2>
-            <div className=' d_flex'>
-              <h4>Total Price :</h4>
-              <h3>${totalPrice}.00</h3>
-            </div>
+
+
+                <Col xxl={8}>
+                <br />
+          <br />
+                  <div className="prooducto-content ">
+                    <div className="producto shadow p-2">
+                      <Container>
+                        <Row>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <img src="https://picsum.photos/200/300" width={60} height={60} alt="producto" />
+                          </Col>
+                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <Row xs={1} md={1}>
+                              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
+                              <Col><Button variant="outline-danger">Elminar</Button></Col>
+                            </Row>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            <label for="tentacles">Unidades:</label>
+                            <input type="number" id="tentacles" defaultValue={1} name="tentacles" min="1" max="100"></input>
+                          </Col>
+                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
+                            $0.00
+                          </Col>
+                        </Row>
+                      </Container>
+                    </div>
+                  </div>
+                </Col>
+
+
+
+
+                <Col xxl={4} >
+                  <div className="total-product-content card-total-products">
+                    <div className="total-product shadow p-2">
+                      <Container>
+                        <Row>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <p>Productos: 2</p>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <p>$0.00</p>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <p>Envío:</p>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <p>Gratis</p>
+                          </Col>
+                          <hr />
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <h4>Total:</h4>
+                          </Col>
+                          <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>
+                            <h4>$0.00</h4>
+                          </Col>
+                          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
+                            <div className="d-grid gap-2">
+                              <Button variant="primary" size="lg">
+                                Continuar compra
+                              </Button>
+                            </div>
+                          </Col>
+                        </Row>
+
+                      </Container>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
           </div>
         </div>
-      </section>
+
+      </div >
     </>
   )
 }
 
 export default Cart
+

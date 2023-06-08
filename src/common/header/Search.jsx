@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import logo from "../../components/assets/images/logo.svg"
 import { Link } from "react-router-dom"
 
@@ -12,6 +12,12 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import authService from "../../services/auth.service";
 
 import Image from 'react-bootstrap/Image';
+import { gql, useQuery } from '@apollo/client';
+import Swal from 'sweetalert2'
+import client from '../../services/Client';
+
+
+
 
 
 const Search = ({ CartItem }) => {
@@ -21,10 +27,53 @@ const Search = ({ CartItem }) => {
     search.classList.toggle("active", window.scrollY > 100)
   })
 
+
+  const [data, setData] = useState(
+    {
+      myUser: {
+        isVendor: false
+      }
+    }
+  );
+
+
+  client.query({
+    query: gql`
+      query {
+        myUser{
+          isVendor
+        }
+      }
+    `,
+    context: {
+      headers: {
+        Authorization: localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : '',
+      }
+    }
+  },).then(response => {
+    const { data, loading, errors } = response;
+
+    if (loading) {
+      console.log("cargando ...");
+    }
+    if (errors) {
+      console.log("error ->", errors);
+    }
+    if (data) {
+      console.log("data ->", data.myUser.isVendor);
+      setData(data)
+
+    }
+  }).catch(error => {
+    // Manejar errores
+    console.error("ERROR ->", error);
+  });
+
+
   return (
     <>
       {['sm'].map((expand) => (
-        <Navbar key="sm" expand="sm" className="mb-3 navbar" variant="dark" >
+        <Navbar key="sm" expand="sm" className="mb-3 navbar " variant="dark" >
           <Container fluid>
             <Navbar.Brand href="/"> <Image src={logo} rounded /> </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-sm`} />
@@ -69,6 +118,11 @@ const Search = ({ CartItem }) => {
                           <NavDropdown.Item href="/account">
                             Mi cuenta
                           </NavDropdown.Item>
+                          {data.myUser.isVendor && (
+                            <NavDropdown.Item href="/sell">
+                            Vender
+                          </NavDropdown.Item>
+                          )}
                           <NavDropdown.Divider />
                           <NavDropdown.Item href="/" onClick={authService.logout}>
                             Cerrar sesion

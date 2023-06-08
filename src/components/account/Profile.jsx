@@ -73,7 +73,7 @@ const Profile = () => {
             console.log("error ->", errors);
         }
         if (data) {
-
+            console.log("data ->", data);
             setData(data)
            
         }

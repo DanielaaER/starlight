@@ -25,7 +25,7 @@ const Account = () => {
                 <Tab eventKey="address-account" title="Direcciones">
                     <AccountAddress />
                 </Tab>
-                <Tab eventKey="orders-account" title="Pedidos">
+                 <Tab eventKey="orders-account" title="Pedidos">
                     <AccountOrders />
                 </Tab>
                 <Tab eventKey="return_of_order-account" title="Devoluciones" >
@@ -33,7 +33,7 @@ const Account = () => {
                 </Tab>
                 <Tab eventKey="bills-account" title="Facturas" >
                     <AccountBills />
-                </Tab>
+                </Tab> 
             </Tabs>
         </>
     );

@@ -13,6 +13,7 @@ import Forgot from "./components/login/forgot"
 import VerifyCode from "./components/login/verifyCode"
 import VerifyMail from "./components/login/verifyMail"
 import Home from "./components/home/home"
+import Sell from "./components/sell/Sell"
 
 
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='/account' element={<Account />} />
             <Route path='/verify' element={<Verify />} />
             <Route path='/account' element={<Account />} />
+            <Route path='/sell' element={<Sell />} />
           </Routes>
           <Footer />
         </Router>
