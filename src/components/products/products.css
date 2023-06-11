@@ -1,0 +1,22 @@
+.container-products{
+    border-radius: 5% ;
+}
+
+.favorites-icon-products {
+    float: right;
+    border: 1px ;
+}
+
+.filter-btn {
+    float: right;
+}
+
+.clear-btn {
+    float: right;
+}
+
+.pagination-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

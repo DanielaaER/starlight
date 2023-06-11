@@ -3,9 +3,9 @@ import "./style.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-import Pubish from "./Publish";
 import Withdrawals from "./Withdrawals";
 import Orders from "./Orders";
+import Products from "./Products";
 import Settings from './Settings';
 import Dashboard from './Dashboard';
 
@@ -21,8 +21,8 @@ const Sell = () => {
                 <Tab eventKey="sell-dashboard" title="Escritorio">
                     <Dashboard />
                 </Tab>
-                <Tab eventKey="sell-new-product" title="Agregar Producto">
-                    <Pubish />
+                <Tab eventKey="sell-productsw" title="Productos">
+                    <Products />
                 </Tab>
                 <Tab eventKey="sell-orders" title="Pedidos">
                     <Orders />

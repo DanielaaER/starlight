@@ -30,7 +30,9 @@ const Cart = () => {
                           <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
                             <Row xs={1} md={1}>
                               <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
-                              <Col><Button variant="outline-danger">Elminar</Button></Col>
+                              <Col>
+                              <Button variant="link">Eliminar</Button>
+                              </Col>
                             </Row>
                           </Col>
                           <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
@@ -62,7 +64,9 @@ const Cart = () => {
                           <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
                             <Row xs={1} md={1}>
                               <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
-                              <Col><Button variant="outline-danger">Elminar</Button></Col>
+                              <Col>
+                              <Button variant="link">Eliminar</Button>
+                              </Col>
                             </Row>
                           </Col>
                           <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
