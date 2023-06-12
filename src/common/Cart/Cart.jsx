@@ -3,9 +3,45 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import './style.css';
 
 const Cart = () => {
+
+  const products_cart = [
+    {
+      id: 1,
+      name: "Producto 1",
+      description: "Descripción del producto",
+      price: 100.00,
+      image: "https://picsum.photos/100/100",
+      quantity: 1
+    },
+    {
+      id: 2,
+      name: "Producto 2",
+      description: "Descripción del producto",
+      price: 100.00,
+      image: "https://picsum.photos/100/100",
+      quantity: 1
+    },
+    {
+      id: 3,
+      name: "Producto 3",
+      description: "Descripción del producto",
+      price: 100.00,
+      image: "https://picsum.photos/100/100",
+      quantity: 1
+    },
+    {
+      id: 4,
+      name: "Producto 4",
+      description: "Descripción del producto",
+      price: 100.00,
+      image: "https://picsum.photos/100/100",
+      quantity: 1
+    },
+  ]
 
   return (
     <>
@@ -19,68 +55,70 @@ const Cart = () => {
 
             <Container>
               <Row>
+
                 <Col xxl={8}>
                   <div className="prooducto-content ">
-                    <div className="producto p-2 shadow ">
+                    <div className="">
                       <Container>
-                        <Row>
-                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <img src="https://picsum.photos/200/300" width={60} height={60} alt="producto" />
-                          </Col>
-                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <Row xs={1} md={1}>
-                              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
-                              <Col>
-                              <Button variant="link">Eliminar</Button>
-                              </Col>
-                            </Row>
-                          </Col>
-                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <label for="tentacles">Unidades:</label>
-                            <input type="number" id="tentacles" defaultValue={1} name="tentacles" min="1" max="100"></input>
-                          </Col>
-                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            $0.00
-                          </Col>
-                        </Row>
+
+                        <Form>
+                          {products_cart.map((value, index) => {
+                            return (
+                              <>
+
+                                <div>
+                                  <div className="producto p-2 shadow ">
+                                    <Row>
+                                      <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
+                                        <Form.Check
+                                          inline
+                                          name={`grupo-1`}
+                                          type="checkbox"
+                                          id={`inline-checkboz-1`}
+                                        />
+                                        <img src={value.image} width={100} height={100} alt="producto" />
+                                      </Col>
+                                      <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
+                                        <h5>{value.name}</h5>
+                                        <p>{value.description}</p>
+
+                                      </Col>
+                                      <Col xs={5} sm={1} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                        <strong>{value.description}</strong>
+                                      </Col>
+                                      <Col xs={5} sm={2} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                        <input
+                                          type="text"
+                                          id="contador"
+                                          class="form-control"
+                                          value={value.quantity}
+                                          min="1"
+                                        />
+                                      </Col>
+                                      <Col xs={2} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1}>
+                                        <Button variant="light"><i class="fa-regular fa-circle-xmark"></i></Button>
+                                      </Col>
+                                    </Row>
+                                  </div>
+                                  <br />
+                                </div>
+
+                              </>
+                            )
+                          })}
+
+                          <Button variant="primary" size="lg" disabled>
+                            Continuar comprando
+                          </Button>{' '}
+                          <Button variant="outline-danger" size="lg" disabled>
+                            Limpiar carrito
+                          </Button>
+                        </Form>
                       </Container>
                     </div>
                   </div>
                 </Col>
 
-
-
-
-                <Col xxl={8}>
-                <br />
-          <br />
-                  <div className="prooducto-content ">
-                    <div className="producto shadow p-2">
-                      <Container>
-                        <Row>
-                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <img src="https://picsum.photos/200/300" width={60} height={60} alt="producto" />
-                          </Col>
-                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <Row xs={1} md={1}>
-                              <Col>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /><br /></Col>
-                              <Col>
-                              <Button variant="link">Eliminar</Button>
-                              </Col>
-                            </Row>
-                          </Col>
-                          <Col xs={8} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            <label for="tentacles">Unidades:</label>
-                            <input type="number" id="tentacles" defaultValue={1} name="tentacles" min="1" max="100"></input>
-                          </Col>
-                          <Col xs={4} sm={6} md={3} lg={3} xl={3} xxl={3}>
-                            $0.00
-                          </Col>
-                        </Row>
-                      </Container>
-                    </div>
-                  </div>
-                </Col>
 
 
 

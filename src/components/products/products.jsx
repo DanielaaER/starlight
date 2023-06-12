@@ -231,7 +231,6 @@ function Products() {
             discount: "50",
             isFavorite: false,
         },
-
     ]
     return (
         <>
