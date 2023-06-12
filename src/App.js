@@ -15,7 +15,7 @@ import VerifyMail from "./components/login/verifyMail"
 import Home from "./components/home/home"
 import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
-
+import PaymentMethod from "./components/paymentMethod/PaymentMethod"
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
             <Route path='/account' element={<Account />} />
             <Route path='/sell' element={<Sell />} />
             <Route path='/products' element={<Products />} />
+            <Route path='/payment-method' element={<PaymentMethod />} />
 
           </Routes>
           <Footer />

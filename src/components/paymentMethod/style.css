@@ -19,12 +19,12 @@
   
   
   @media (max-width: 790px) {
-    .text-data-products-cart{
+    .text-data-payment-method{
       visibility: hidden;
     }
   }
   @media (min-width: 790px) {
-    .text-data-products-cart{
+    .text-data-payment-method{
       background-color: #E2F4FF;
       color: #2a2a2a;
       text-align: center;
