@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -10,7 +10,20 @@ import AccountReturnOfOrder from "../../components/account/ReturnOfOrder"
 import AccountBills from "../../components/account/Bills"
 
 
+import TrackingComponent from "../../components/tracking/tracking";
+import TrackingPedido from "../../components/tracking/trackingPedido";
+
 const Account = () => {
+
+    const [mostrarReturnOrder, setMostrarReturnOrder] = useState(true);
+    const [mostrarPedido, setMostrarPedido] = useState(true);
+
+    const cambiarComponente = () => {
+        setMostrarReturnOrder(false);
+    }
+    const cambiar = () => {
+        setMostrarPedido(false);
+    }
 
     return (
         <>
@@ -26,10 +39,11 @@ const Account = () => {
                     <AccountAddress />
                 </Tab>
                 <Tab eventKey="orders-account" title="Pedidos">
-                    <AccountOrders />
+                    {mostrarPedido ? <AccountOrders cambiarComponente={cambiar} /> : <TrackingPedido />}
                 </Tab>
                 <Tab eventKey="return_of_order-account" title="Devoluciones" >
-                    <AccountReturnOfOrder />
+                    {mostrarReturnOrder ? <AccountReturnOfOrder cambiarComponente={cambiarComponente} /> : <TrackingComponent />}
+
                 </Tab>
                 <Tab eventKey="bills-account" title="Facturas" >
                     <AccountBills />

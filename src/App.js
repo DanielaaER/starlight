@@ -11,6 +11,9 @@ import Verify from "./components/login/verify"
 import Forgot from "./components/login/forgot"
 import VerifyCode from "./components/login/verifyCode"
 import VerifyMail from "./components/login/verifyMail"
+import ProductDetail from "./components/product/product"
+import TrackingComponent from "./components/tracking/tracking"
+
 
 function App() {
   /*
@@ -85,15 +88,18 @@ function App() {
           <Route path='/login' element={<Login />} />
 
           <Route path='/signup' element={<Signup />} />
-          
+
           <Route path='/verify' element={<Verify />} />
 
           <Route path='/verifyMail' element={<VerifyMail />} />
-          
+
           <Route path='/verifyCode' element={<VerifyCode />} />
-          
+
           <Route path='/forgot' element={<Forgot />} />
 
+          <Route path="/product" element={<ProductDetail />} />
+          
+          <Route path="/tracking" element={<TrackingComponent />} />
 
         </Routes>
         <Footer />

@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 
 import "./style.css";
 
-const Orders = () => {
+const Orders = ({ cambiarComponente }) => {
 
     if (AccountData[0]["order_list"].length == 0) {
         return <>
@@ -60,6 +60,9 @@ const Orders = () => {
                                             </h6>
                                             <Button className="orden" variant="primary" size="md">
                                                 Volver a comprar
+                                            </Button>
+                                            <Button className="orden" variant="primary" size="md" onClick={cambiarComponente}>
+                                                Ver detalles
                                             </Button>
 
                                             {(() => {
