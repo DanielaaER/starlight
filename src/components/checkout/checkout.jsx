@@ -8,12 +8,16 @@ import './style.css';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
-const PaymentMethod = () => {
+const CheckOut = () => {
     const navigate = useNavigate();
 
 
     const handleClickSelectPaymentMethod = () => {
-        navigate("/checkOut");
+        navigate("/payment-method");
+        window.location.reload();
+    };
+    const handleClickCancel = () => {
+        navigate("/Cart");
         window.location.reload();
     };
 
@@ -26,26 +30,9 @@ const PaymentMethod = () => {
             country: "Colombia",
             phone: "3000000000",
             selected: true
-        },
-        {
-            id: 2,
-            name: "Trabajo",
-            description: "Calle 2, #2-2",
-            city: "Bogotá",
-            country: "Colombia",
-            phone: "3000000000",
-            selected: false
-        },
-        {
-            id: 3,
-            name: "Otro",
-            description: "Calle 3, #3-3",
-            city: "Bogotá",
-            country: "Colombia",
-            phone: "3000000000",
-            selected: false
-        },
+        }
     ]
+
 
     const payment_method = [
         {
@@ -54,14 +41,17 @@ const PaymentMethod = () => {
             card: "Visa que termina en 3810",
             date_expire: "10/24",
             selected: "on"
-        },
+        }
+    ]
+    const products_cart = [
         {
-            id: 2,
-            name: "Rafael Contreras Sanchez",
-            card: "Mastercard que termina en 5710",
-            date_expire: "04/26",
-            selected: false
-        },
+            id: 1,
+            name: "Producto 1",
+            description: "Descripción del producto",
+            price: 100.00,
+            image: "https://picsum.photos/100/100",
+            quantity: 1
+        }
     ]
 
 
@@ -93,14 +83,7 @@ const PaymentMethod = () => {
                                                                     <div className="producto p-2 shadow ">
                                                                         <Row>
                                                                             <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                                                <Form.Check
-                                                                                    inline
-                                                                                    name={`addres-group`}
-                                                                                    type="radio"
-                                                                                    id={`inline-checkboz-${index}`}
-                                                                                    value={value.selected}
-                                                                                    required
-                                                                                />
+                                                                                <p></p>
                                                                             </Col>
                                                                             <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
                                                                                 <strong>{value.name}</strong>
@@ -123,14 +106,13 @@ const PaymentMethod = () => {
                                                 </Form>
                                             </Container>
                                         </div>
-                                                    <hr />
-                                                    <div className="shadow">
+                                        <hr />
+                                        <div className="shadow">
                                             <Container>
                                                 <Row>
-                                                    <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} className="text-data-payment-method">
-                                                        <strong> </strong>
-
-                                                    </Col >
+                                                    <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
+                                                        <p></p>
+                                                    </Col>
                                                     <Col xs={4} sm={4} md={4} lg={4} xl={4} xx={4} xxl={4} className="text-data-payment-method">
                                                         <strong>2.-Método de pago</strong>
 
@@ -153,22 +135,16 @@ const PaymentMethod = () => {
                                                                     <div className="producto p-2 shadow ">
                                                                         <Row>
                                                                             <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                                                <Form.Check
-                                                                                    inline
-                                                                                    name={`group-paymentcard`}
-                                                                                    type="radio"
-                                                                                    value={value.selected}
-                                                                                    id={`inline-checkboz-${index}`}
-                                                                                />
+                                                                                <p></p>
                                                                             </Col>
                                                                             <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
-                                                                            <p><i class="fa-solid fa-credit-card"></i> {value.card}</p>
+                                                                                <p><i class="fa-solid fa-credit-card"></i> {value.card}</p>
                                                                             </Col>
                                                                             <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-                                                                            <p> {value.name}</p>
+                                                                                <p> {value.name}</p>
                                                                             </Col>
                                                                             <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-                                                                            <p> {value.date_expire }</p>
+                                                                                <p> {value.date_expire}</p>
                                                                             </Col>
 
                                                                         </Row>
@@ -179,25 +155,77 @@ const PaymentMethod = () => {
                                                             </>
                                                         )
                                                     })}
-                                                     <div>
-                                                                    <div className="producto p-2 shadow ">
-                                                                        <Row>
-                                                                            <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                                                <button variant="light"><i class="fa-solid fa-circle-plus"></i></button>
-                                                                            </Col>
-                                                                            <Col xs={11} sm={11} md={11} lg={11} xl={11} xx={11} xxl={11} >
-                                                                            <p><i class="fa-regular fa-credit-card"></i> Agregar nueva tarjeta</p>
-                                                                            </Col>
-                                                                        </Row>
-                                                                        </div>
-                                                                        </div>
-                                                                    
+                                                    <div>
+
+                                                    </div>
+
                                                 </Form>
                                             </Container>
                                         </div>
+
+
+                                        <hr />
+                                        <div className="shadow">
+                                            <Container>
+                                                <Row>
+                                                    <Col xs={6} sm={6} md={6} lg={6} xl={6} xx={6} xxl={6} className="text-data-products-cart">
+                                                        <strong>Producto</strong>
+
+                                                    </Col >
+
+                                                    <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
+                                                        <div className="text-data-products-cart">
+                                                            <strong>Precio</strong>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
+                                                        <strong>Cantidad</strong>
+                                                    </Col>
+                                                </Row>
+                                                <Form>
+                                                    {products_cart.map((value, index) => {
+                                                        return (
+                                                            <>
+
+                                                                <div>
+                                                                    <div className="producto p-2 shadow ">
+                                                                        <Row>
+                                                                            <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1}>
+                                                                            <strong></strong>
+                                                                            </Col>
+                                                                            <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
+                                                                                <img src={value.image} width={100} height={100} alt="producto" />
+                                                                            </Col>
+                                                                            <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
+                                                                                <h5>{value.name}</h5>
+                                                                                <p>{value.description}</p>
+
+                                                                            </Col>
+                                                                            <Col xs={5} sm={1} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                                                                <strong>{value.price}</strong>
+                                                                            </Col>
+                                                                            <Col xs={5} sm={2} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                                                            <strong>{value.quantity}</strong>
+                                                                            </Col>
+                                                                        </Row>
+                                                                    </div>
+                                                                    <br />
+                                                                </div>
+
+                                                            </>
+                                                        )
+                                                    })}
+
+                                                    <Button variant="outline-danger" size="lg" onClick={handleClickCancel}>
+                                                        Cancelar Compra
+                                                    </Button>
+                                                </Form>
+                                            </Container>
+                                        </div>
+
+
                                     </div>
                                 </Col>
-
 
 
 
@@ -253,5 +281,5 @@ const PaymentMethod = () => {
     )
 }
 
-export default PaymentMethod
+export default CheckOut
 

@@ -13,7 +13,7 @@ const Cart = () => {
   const handleClickSelectPaymentMethod = () => {
     navigate("/payment-method");
     window.location.reload();
-};
+  };
 
   const products_cart = [
     {
@@ -67,21 +67,21 @@ const Cart = () => {
                   <div className="prooducto-content ">
                     <div className="">
                       <Container>
-                      <Row>
-                        <Col xs={6} sm={6} md={6} lg={6} xl={6} xx={6} xxl={6} className="text-data-products-cart">
-                          <strong>Producto</strong>
-                      
-                        </Col >
+                        <Row>
+                          <Col xs={6} sm={6} md={6} lg={6} xl={6} xx={6} xxl={6} className="text-data-products-cart">
+                            <strong>Producto</strong>
 
-                        <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
-                          <div className="text-data-products-cart">
-                          <strong>Precio</strong>
-                          </div>
-                        </Col>
-                        <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
-                        <strong>Cantidad</strong>
-                        </Col>
-                      </Row>
+                          </Col >
+
+                          <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
+                            <div className="text-data-products-cart">
+                              <strong>Precio</strong>
+                            </div>
+                          </Col>
+                          <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
+                            <strong>Cantidad</strong>
+                          </Col>
+                        </Row>
                         <Form>
                           {products_cart.map((value, index) => {
                             return (
@@ -148,10 +148,10 @@ const Cart = () => {
                   <div className="total-product-content card-total-products">
                     <div className="total-product shadow p-2">
                       <Container>
-                      <Row>
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} xx={12} xxl={12} className="text-data-products-cart">
-                          <strong>Total del carrito</strong>
-                        </Col >
+                        <Row>
+                          <Col xs={12} sm={12} md={12} lg={12} xl={12} xx={12} xxl={12} className="text-data-products-cart">
+                            <strong>Total del carrito</strong>
+                          </Col >
                         </Row>
                         <Row>
                           <Col xs={8} sm={6} md={3} lg={3} xl={6} xxl={6}>

@@ -16,15 +16,16 @@ import Home from "./components/home/home"
 import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
 import PaymentMethod from "./components/paymentMethod/PaymentMethod"
+import CheckOut from "./components/checkout/checkout"
 
 
 function App() {
 
-  
+
 
   return (
     <>
-      {
+      {/* {
       (localStorage.getItem("token")) ? (
           <Router>
           <Header CartItem />
@@ -58,8 +59,8 @@ function App() {
           <Footer />
         </Router>
         )
-      } 
-{/*       <Router>
+      }  */}
+      <Router>
         <Header CartItem />
         <Routes>
           <Route path='/' />
@@ -71,9 +72,16 @@ function App() {
           <Route path='/verifyMail' element={<VerifyMail />} />
           <Route path='/verifyCode' element={<VerifyCode />} />
           <Route path='/forgot' element={<Forgot />} />
+          
+          <Route path='/' element={<Home />}/>
+            <Route path='/verify' element={<Verify />} />
+            <Route path='/sell' element={<Sell />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='/payment-method' element={<PaymentMethod />} />
+            <Route path='/checkOut' element={<CheckOut />} />
         </Routes>
         <Footer />
-      </Router> */}
+      </Router>
     </>
   )
 }
