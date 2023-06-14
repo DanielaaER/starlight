@@ -96,7 +96,10 @@ li button:hover {
   align-items: center;
 }
 
-.product img {
+
+.ImagenList {
+  height: 15%;
+  width: 15%;
   width: 40px;
   height: 40px;
   object-fit: cover;
@@ -104,10 +107,6 @@ li button:hover {
   margin-right: 10px;
 }
 
-.ImagenList {
-  height: 15%;
-  width: 15%;
-}
 
 
 .product-name {
