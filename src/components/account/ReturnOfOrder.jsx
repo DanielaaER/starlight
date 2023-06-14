@@ -140,7 +140,7 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                 </p>
 
 
-                                                <div className="estatus">
+                                                <div className="estatu">
 
                                                     {(() => {
                                                         if (value.status.toUpperCase() === "EN PROCESO DE DEVOLUCIÓN") {

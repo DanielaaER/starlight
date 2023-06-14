@@ -48,6 +48,7 @@
 }
 
 .estatus {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
@@ -56,6 +57,16 @@
     padding: 0px;
     gap: 7%;
 }
+.estatu{
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 5% 0;
+    padding: 0px;
+    gap: 7%;
+}
+
 
 .informacion {
     display: flex;
