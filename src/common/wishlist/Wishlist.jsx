@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
-import './Style.css';
+import './WishList.css';
+
+const products = [
+    {
+        id: 1,
+        name: "Xbox control",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga asperiores corporis minima laboriosam omnis accusantium molestiae. Molestiae atque incidunt quia iure neque? Assumenda saepe nesciunt praesentium dolor architecto, fuga distinctio.",
+        price: 1290.0,
+        quantity: 1,
+        url_img: "https://res.cloudinary.com/walmart-labs/image/upload/d_default.jpg/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984261392l.jpg",
+        delivery_address_id: 1,
+        date_of_purchase: "10/04/2023 15:30",
+        delivery_date: "11/04/2023 12:30",
+        status: "en proceso de devolución"
+    }
+];
+
 const WishList = () => {
     const [wish, setWish] = useState('');
     const [lists, setLists] = useState([]);
@@ -7,18 +23,29 @@ const WishList = () => {
     const [isAddingList, setIsAddingList] = useState(false);
     const [listName, setListName] = useState('');
     const [isAddingWish, setIsAddingWish] = useState(false);
+    const [jsonOutput, setJsonOutput] = useState('');
+    const [productCode, setProductCode] = useState('');
+    const [productDetails, setProductDetails] = useState(null);
 
     const handleInputChange = (e) => {
         setWish(e.target.value);
     };
 
     const handleAddWish = () => {
-        if (wish.trim() !== '') {
-            const updatedLists = [...lists];
-            updatedLists[activeListIndex].wishes.push({ name: wish, link: '' });
-            setLists(updatedLists);
-            setWish('');
-            setIsAddingWish(false);
+        if (productCode.trim() !== '') {
+            const product = products.find((item) => item.id === parseInt(productCode));
+            if (product) {
+                const updatedLists = [...lists];
+                updatedLists[activeListIndex].wishes.push({
+                    name: product.name,
+                    link: product.url_img,
+                    price: product.price
+                });
+                setLists(updatedLists);
+                setProductCode('');
+                setProductDetails(product);
+                setIsAddingWish(false);
+            }
         }
     };
 
@@ -49,14 +76,15 @@ const WishList = () => {
         setListName(e.target.value);
     };
 
-    const toggleAddWish = () => {
-        setIsAddingWish(!isAddingWish);
-    };
-
     const currentList = lists[activeListIndex];
 
+    const handleShowJson = () => {
+        const json = JSON.stringify(lists[activeListIndex]);
+        setJsonOutput(json);
+    };
+
     return (
-        <div className="wishlist">
+        <wishlist>
             <div className="container-wish">
                 <h2>Lista de Deseos</h2>
                 <div className="list-navigation">
@@ -69,58 +97,61 @@ const WishList = () => {
                             {list.name}
                         </button>
                     ))}
-                    <button onClick={handleAddList}>
-                        {isAddingList ? 'Cancelar' : 'Nueva Lista'}
+                    <button onClick={() => setIsAddingList(!isAddingList)}>
+                        {isAddingList ? 'Cancelar' : 'Agregar Lista'}
                     </button>
                 </div>
                 {isAddingList ? (
                     <div className="list-name-input">
                         <input
                             type="text"
+                            placeholder="Nombre de la lista"
                             value={listName}
                             onChange={handleListNameChange}
-                            placeholder="Nombre de la lista"
                         />
-                        <button onClick={handleAddList}>Crear</button>
+                        <button onClick={handleAddList}>Agregar</button>
                     </div>
                 ) : (
                     <>
                         {currentList ? (
                             <>
-                                <h3>{currentList.name}</h3>
-                                {!isAddingWish ? (
-                                    <button onClick={toggleAddWish}>Agregar Producto</button>
-                                ) : (
+                                {isAddingWish ? (
                                     <>
                                         <input
                                             type="text"
-                                            value={wish}
-                                            onChange={handleInputChange}
                                             placeholder="Nombre del producto"
+                                            value={productCode}
+                                            onChange={(e) => setProductCode(e.target.value)}
                                         />
                                         <button onClick={handleAddWish}>Agregar</button>
+                                        <button onClick={() => setIsAddingWish(false)}>Cancelar</button>
                                     </>
-                                )}
-                                {currentList.wishes.length > 0 ? (
-                                    <div className="wish-list">
-                                        <ul>
-                                            {currentList.wishes.map((wish, index) => (
-                                                <li key={index}>
-                                                    <div className="product">
-                                                        <img
-                                                            src="ruta/a/la/imagen.jpg"
-                                                            alt="Producto"
-                                                        />
-                                                        <a href={'/product'} target="_blank" rel="noopener noreferrer"> <span className="product-name">{wish.name}</span>
-                                                        </a>
-                                                    </div>
-                                                    <button onClick={() => handleRemoveWish(index)}>Eliminar</button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
                                 ) : (
-                                    <p className="empty-message">No hay productos en esta lista de deseos</p>
+                                    <>
+                                        <button onClick={() => setIsAddingWish(true)}>Agregar Producto</button>
+                                        {/* <button onClick={handleShowJson}>Mostrar JSON</button> */}
+                                        {/* {productDetails && (
+                                            <div className="product-details">
+                                                <h3>{productDetails.name}</h3>
+                                                <img src={productDetails.url_img} alt={productDetails.name} />
+                                                <p>Precio: ${productDetails.price}</p>
+                                            </div>
+                                        )} */}
+                                        {currentList.wishes.length > 0 ? (
+                                            <ul className="wish-list">
+                                                {currentList.wishes.map((wish, index) => (
+                                                    <li key={index}>
+                                                        <img className='ImagenList' src={wish.link} alt={wish.name} />
+                                                        <p>{wish.name}</p>
+                                                        <p>${wish.price}</p>
+                                                        <button onClick={() => handleRemoveWish(index)}>Eliminar</button>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className="empty-message">No hay productos en la lista.</p>
+                                        )}
+                                    </>
                                 )}
                             </>
                         ) : (
@@ -131,7 +162,13 @@ const WishList = () => {
                     </>
                 )}
             </div>
+            {/* {jsonOutput && (
+        <div className="json-output">
+          <h3>JSON de la Lista</h3>
+          <pre>{jsonOutput}</pre>
         </div>
+      )} */}
+        </wishlist>
     );
 };
 
