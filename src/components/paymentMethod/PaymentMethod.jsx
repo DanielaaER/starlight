@@ -13,7 +13,7 @@ const PaymentMethod = () => {
 
 
     const handleClickSelectPaymentMethod = () => {
-        navigate("/payment-method");
+        navigate("/checkOut");
         window.location.reload();
     };
 
