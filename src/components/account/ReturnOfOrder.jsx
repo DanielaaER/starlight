@@ -10,8 +10,9 @@ import { PDFViewer } from '@react-pdf/renderer';
 import ReturnReport from './ReturnReport';
 import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
 
+import TrackingComponent from '../tracking/tracking'
 
-const ReturnOfOrder = () => {
+const ReturnOfOrder = ({ cambiarComponente }) => {
 
 
 
@@ -121,7 +122,7 @@ const ReturnOfOrder = () => {
                                                         <br></br>
 
                                                         <p>
-                                                            {AccountData[0]['delivery_address'][value.delivery_address_id-1].address}
+                                                            {AccountData[0]['delivery_address'][value.delivery_address_id - 1].address}
 
                                                         </p>
                                                         <h6>Entrega: </h6>
@@ -145,19 +146,11 @@ const ReturnOfOrder = () => {
                                                         if (value.status.toUpperCase() === "EN PROCESO DE DEVOLUCIÓN") {
                                                             return <div className='return-order-item-buttons'>
                                                                 <div className="d-grid gap-2">
-                                                                    {/* <Button
-                                                                        variant="primary"
-                                                                        size="md"
-
-                                                                    >
-                                                                        Imprimir etiqueta de devolución
-                                                                    </Button>
- */}
 
                                                                     <PDFDownloadLink
                                                                         document={
 
-                                                                            <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id-1]} cliente={AccountData[0].name} />
+                                                                            <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id - 1]} cliente={AccountData[0].name} />
 
                                                                         }
                                                                         fileName="EtiquetaDevolucion.pdf"
@@ -186,29 +179,25 @@ const ReturnOfOrder = () => {
                                                                         }
                                                                     </PDFDownloadLink>
 
-                                                                    {/* <PDFViewer width="800" height="600">
-                                                                        <ReturnReport product={AccountData[0]["order_list"][value.id - 1]} shippingAddress={AccountData[0]['delivery_address'][value.delivery_address_id]} cliente={AccountData[0].name} />
-                                                                    </PDFViewer> */}
-                                                                    <Button variant="secondary" size="md">
-                                                                        Cancelar devolucion
-                                                                    </Button>
                                                                 </div>
                                                             </div>
                                                         }
 
-                                                        if (value.status.toUpperCase() === "DEVUELTO") {
-                                                            return <div className='return-order-item-buttons'>
-                                                                <div className="d-grid gap-2">
-                                                                    <Button variant="primary" size="md">
-                                                                        Ver detalles
-                                                                    </Button>
-
-                                                                </div>
-                                                            </div>
-                                                        }
 
 
                                                     })()}
+                                                    <div>
+                                                        <p></p>
+                                                    </div>
+                                                    <div className='return-order-item-buttons'>
+                                                        <div className="d-grid gap-2">
+                                                            <Button variant="primary" size="md" onClick={cambiarComponente}>
+                                                                Ver detalles
+                                                            </Button>
+
+                                                        </div>
+                                                    </div>
+                                                   
                                                 </div>
 
 

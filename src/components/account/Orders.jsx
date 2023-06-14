@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 
 import "./style.css";
 
-const Orders = () => {
+const Orders = ({ cambiarComponente }) => {
 
 
     const [dataOrders, setDataOrders] = useState(
@@ -169,6 +169,22 @@ const Orders = () => {
                                             <Button className="orden" variant="primary" size="md">
                                                 Volver a comprar
                                             </Button>
+
+
+                                            <Button className="orden" variant="primary" size="md" onClick={cambiarComponente}>
+                                                Ver detalles
+                                            </Button>
+
+                                            {(() => {
+                                                if (value.status.toUpperCase() === "ENTREGADO") {
+                                                    return <Button className="orden" variant="secondary" size="md">
+                                                        Devolver
+                                                    </Button>
+                                                }
+
+
+                                            })()}
+
                                         </div>
                                         <div className="acomodo">
                                             <div className='img-orders'>

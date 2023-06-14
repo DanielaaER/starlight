@@ -1,0 +1,126 @@
+.tracking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.product-info {
+  display: flex;
+  text-align: row;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.product-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+}
+
+.timeline-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+}
+
+.timeline-dot.completed {
+  background-color: #4caf50;
+}
+
+.timeline-title {
+  font-size: 14px;
+}
+
+.timeline-description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.timeline-description-item {
+  margin-bottom: 10px;
+}
+
+.refund-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.refund-summary-text {
+  margin-bottom: 10px;
+  height: 20%;
+  width: 40%;
+  text-align: justify;
+  text-overflow: ellipsis;
+  
+}
+
+.refund-details-item {
+  margin-bottom: 10px;
+  height: 30%;
+}
+
+.refund-details-title {
+  font-weight: bold;
+}
+
+.total-label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.total-amount {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Otros estilos personalizados según tus necesidades */
+
+@media screen and (max-width: 920px) {
+
+  .product-info {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 10px;
+    /* Ajusta el ancho según tus necesidades */
+  }
+}

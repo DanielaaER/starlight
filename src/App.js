@@ -12,12 +12,15 @@ import Verify from "./components/login/verify"
 import Forgot from "./components/login/forgot"
 import VerifyCode from "./components/login/verifyCode"
 import VerifyMail from "./components/login/verifyMail"
+
 import Home from "./components/home/home"
 import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
 import PaymentMethod from "./components/paymentMethod/PaymentMethod"
 import CheckOut from "./components/checkout/checkout"
 
+import ProductDetail from "./components/product/product"
+import TrackingComponent from "./components/tracking/tracking"
 
 function App() {
 
@@ -68,6 +71,7 @@ function App() {
           <Route path='/account' element={<Account />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+
           <Route path='/verify' element={<Verify />} />
           <Route path='/verifyMail' element={<VerifyMail />} />
           <Route path='/verifyCode' element={<VerifyCode />} />
@@ -79,6 +83,13 @@ function App() {
             <Route path='/products' element={<Products />} />
             <Route path='/payment-method' element={<PaymentMethod />} />
             <Route path='/checkOut' element={<CheckOut />} />
+
+          <Route path='/verifyCode' element={<VerifyCode />} />
+          <Route path='/forgot' element={<Forgot />} />
+          <Route path="/product" element={<ProductDetail />} />
+          <Route path="/tracking" element={<TrackingComponent />} />
+
+
         </Routes>
         <Footer />
       </Router>
