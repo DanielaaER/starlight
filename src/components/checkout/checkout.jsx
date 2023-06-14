@@ -65,166 +65,61 @@ const CheckOut = () => {
                             <Row>
 
                                 <Col xxl={8}>
-                                    <div className="prooducto-content ">
-                                        <div className="shadow">
-                                            <Container>
-                                                <Row>
-                                                    <Col xs={12} sm={12} md={12} lg={12} xl={12} xx={12} xxl={12} className="text-data-payment-method">
-                                                        <strong> 1.- Dirección de envio</strong>
-
-                                                    </Col >
-                                                </Row>
-                                                <Form>
-                                                    {address.map((value, index) => {
-                                                        return (
-                                                            <>
-
-                                                                <div>
-                                                                    <div className="producto p-2 shadow ">
-                                                                        <Row>
-                                                                            <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                                                <p></p>
-                                                                            </Col>
-                                                                            <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
-                                                                                <strong>{value.name}</strong>
-                                                                                <p>{value.description}, {value.city}.{value.country}
-                                                                                    <br />
-                                                                                    {value.phone}</p>
-                                                                            </Col>
-                                                                            <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-
-                                                                            </Col>
-
-                                                                        </Row>
-                                                                    </div>
-                                                                    <br />
-                                                                </div>
-
-                                                            </>
-                                                        )
-                                                    })}
-                                                </Form>
-                                            </Container>
-                                        </div>
-                                        <hr />
-                                        <div className="shadow">
-                                            <Container>
-                                                <Row>
-                                                    <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                        <p></p>
-                                                    </Col>
-                                                    <Col xs={4} sm={4} md={4} lg={4} xl={4} xx={4} xxl={4} className="text-data-payment-method">
-                                                        <strong>2.-Método de pago</strong>
-
-                                                    </Col >
-                                                    <Col xs={4} sm={4} md={4} lg={4} xl={4} xx={4} xxl={4} className="text-data-payment-method">
-                                                        <strong>Nombre de la tarjeta</strong>
-
-                                                    </Col >
-                                                    <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-payment-method">
-                                                        <strong>Vencimiento</strong>
-
-                                                    </Col >
-                                                </Row>
-                                                <Form>
-                                                    {payment_method.map((value, index) => {
-                                                        return (
-                                                            <>
-
-                                                                <div>
-                                                                    <div className="producto p-2 shadow ">
-                                                                        <Row>
-                                                                            <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1} >
-                                                                                <p></p>
-                                                                            </Col>
-                                                                            <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
-                                                                                <p><i class="fa-solid fa-credit-card"></i> {value.card}</p>
-                                                                            </Col>
-                                                                            <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-                                                                                <p> {value.name}</p>
-                                                                            </Col>
-                                                                            <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-                                                                                <p> {value.date_expire}</p>
-                                                                            </Col>
-
-                                                                        </Row>
-                                                                    </div>
-                                                                    <br />
-                                                                </div>
-
-                                                            </>
-                                                        )
-                                                    })}
-                                                    <div>
-
-                                                    </div>
-
-                                                </Form>
-                                            </Container>
-                                        </div>
 
 
-                                        <hr />
-                                        <div className="shadow">
-                                            <Container>
-                                                <Row>
-                                                    <Col xs={6} sm={6} md={6} lg={6} xl={6} xx={6} xxl={6} className="text-data-products-cart">
-                                                        <strong>Producto</strong>
 
-                                                    </Col >
 
-                                                    <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
-                                                        <div className="text-data-products-cart">
-                                                            <strong>Precio</strong>
-                                                        </div>
-                                                    </Col>
-                                                    <Col xs={3} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3} className="text-data-products-cart">
-                                                        <strong>Cantidad</strong>
-                                                    </Col>
-                                                </Row>
-                                                <Form>
-                                                    {products_cart.map((value, index) => {
-                                                        return (
-                                                            <>
+                                    <div className="shadow">
+                                        <Container>
+                                            <Row>
+                                                <Col xs={12} sm={12} md={12} lg={12} xl={12} xx={12} xxl={12} className="text-data-payment-method">
+                                                    <strong> 3. Revisar pedido y envio</strong>
 
-                                                                <div>
-                                                                    <div className="producto p-2 shadow ">
-                                                                        <Row>
-                                                                            <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1}>
+                                                </Col >
+                                            </Row>
+                                            <p>Fecha de entrega estimada: <b>17 de julio</b></p> 
+                                            <Form>
+                                                {products_cart.map((value, index) => {
+                                                    return (
+                                                        <>
+
+                                                            <div>
+                                                                <div className="producto p-2 shadow ">
+                                                                    <Row>
+                                                                        <Col xs={1} sm={1} md={1} lg={1} xl={1} xx={1} xxl={1}>
                                                                             <strong></strong>
-                                                                            </Col>
-                                                                            <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
-                                                                                <img src={value.image} width={100} height={100} alt="producto" />
-                                                                            </Col>
-                                                                            <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
-                                                                                <h5>{value.name}</h5>
-                                                                                <p>{value.description}</p>
+                                                                        </Col>
+                                                                        <Col xs={7} sm={5} md={4} lg={4} xl={4} xx={4} xxl={4} >
+                                                                            <img src={value.image} width={100} height={100} alt="producto" />
+                                                                        </Col>
+                                                                        <Col xs={5} sm={3} md={3} lg={3} xl={3} xx={3} xxl={3}>
+                                                                            <h5>{value.name}</h5>
+                                                                            <p>{value.description}</p>
 
-                                                                            </Col>
-                                                                            <Col xs={5} sm={1} md={2} lg={2} xl={2} xx={2} xxl={2}>
-                                                                                <strong>{value.price}</strong>
-                                                                            </Col>
-                                                                            <Col xs={5} sm={2} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                                                        </Col>
+                                                                        <Col xs={5} sm={1} md={2} lg={2} xl={2} xx={2} xxl={2}>
+                                                                            <strong>{value.price}</strong>
+                                                                        </Col>
+                                                                        <Col xs={5} sm={2} md={2} lg={2} xl={2} xx={2} xxl={2}>
                                                                             <strong>{value.quantity}</strong>
-                                                                            </Col>
-                                                                        </Row>
-                                                                    </div>
-                                                                    <br />
+                                                                        </Col>
+                                                                    </Row>
                                                                 </div>
+                                                                <br />
+                                                            </div>
 
-                                                            </>
-                                                        )
-                                                    })}
-
-                                                    <Button variant="outline-danger" size="lg" onClick={handleClickCancel}>
-                                                        Cancelar Compra
-                                                    </Button>
-                                                </Form>
-                                            </Container>
-                                        </div>
+                                                        </>
+                                                    )
+                                                })}
 
 
+                                            </Form>
+                                            <Button variant="outline-danger" size="lg" onClick={handleClickCancel}>
+                                                Cancelar Compra
+                                            </Button>
+                                        </Container>
                                     </div>
+
                                 </Col>
 
 
