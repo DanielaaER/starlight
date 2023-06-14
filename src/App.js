@@ -17,6 +17,7 @@ import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
 import PaymentMethod from "./components/paymentMethod/PaymentMethod"
 import CheckOut from "./components/checkout/checkout"
+import WishList from "./common/wishlist/Wishlist"
 
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
             <Route path='/products' element={<Products />} />
             <Route path='/payment-method' element={<PaymentMethod />} />
             <Route path='/checkOut' element={<CheckOut />} />
+            <Route path='/favorrites' element={<WishList />} />
         </Routes>
         <Footer />
       </Router>
