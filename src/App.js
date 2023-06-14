@@ -18,6 +18,7 @@ import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
 import PaymentMethod from "./components/paymentMethod/PaymentMethod"
 import CheckOut from "./components/checkout/checkout"
+import WishList from "./common/wishlist/Wishlist"
 
 import ProductDetail from "./components/product/product"
 import TrackingComponent from "./components/tracking/tracking"
@@ -66,7 +67,7 @@ function App() {
       <Router>
         <Header CartItem />
         <Routes>
-          <Route path='/' />
+        {/*   <Route path='/' /> */}
           <Route path='/cart' element={<Cart />} />
           <Route path='/account' element={<Account />} />
           <Route path='/login' element={<Login />} />
@@ -78,7 +79,7 @@ function App() {
           <Route path='/forgot' element={<Forgot />} />
           
           <Route path='/' element={<Home />}/>
-            <Route path='/verify' element={<Verify />} />
+            {/* <Route path='/verify' element={<Verify />} /> */}
             <Route path='/sell' element={<Sell />} />
             <Route path='/products' element={<Products />} />
             <Route path='/payment-method' element={<PaymentMethod />} />
@@ -89,6 +90,8 @@ function App() {
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/tracking" element={<TrackingComponent />} />
 
+
+            <Route path='/favorrites' element={<WishList />} />
 
         </Routes>
         <Footer />
