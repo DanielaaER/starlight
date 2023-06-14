@@ -17,7 +17,7 @@ import Sell from "./components/sell/Sell"
 import Products from "./components/products/products"
 import PaymentMethod from "./components/paymentMethod/PaymentMethod"
 import CheckOut from "./components/checkout/checkout"
-
+import PedidoRealizado from "./components/finishOrder/finishOrfder"
 
 function App() {
 
@@ -72,13 +72,15 @@ function App() {
           <Route path='/verifyMail' element={<VerifyMail />} />
           <Route path='/verifyCode' element={<VerifyCode />} />
           <Route path='/forgot' element={<Forgot />} />
-          
-          <Route path='/' element={<Home />}/>
-            <Route path='/verify' element={<Verify />} />
-            <Route path='/sell' element={<Sell />} />
-            <Route path='/products' element={<Products />} />
-            <Route path='/payment-method' element={<PaymentMethod />} />
-            <Route path='/checkOut' element={<CheckOut />} />
+
+          <Route path='/' element={<Home />} />
+          <Route path='/verify' element={<Verify />} />
+          <Route path='/sell' element={<Sell />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/payment-method' element={<PaymentMethod />} />
+          <Route path='/checkOut' element={<CheckOut />} />
+          <Route path='/finishOrder' element={<PedidoRealizado />} />
+
         </Routes>
         <Footer />
       </Router>
