@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './WishList.css';
+import { Link } from "react-router-dom"
 
 const products = [
     {
@@ -142,7 +143,9 @@ const WishList = () => {
                                                 {currentList.wishes.map((wish, index) => (
                                                     <li key={index}>
                                                         <img className='ImagenList' src={wish.link} alt={wish.name} />
-                                                        <p>{wish.name}</p>
+                                                        <Link to="/producto">
+                                                            <label>{wish.name}</label>
+                                                        </Link>
                                                         <p>${wish.price}</p>
                                                         <button onClick={() => handleRemoveWish(index)}>Eliminar</button>
                                                     </li>
