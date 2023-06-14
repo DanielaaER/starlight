@@ -34,13 +34,11 @@ const CheckOut = () => {
     ]
 
 
-    const payment_method = [
+    const deliver = [
         {
             id: 1,
-            name: "Rafael Contreras Sanchez",
-            card: "Visa que termina en 3810",
-            date_expire: "10/24",
-            selected: "on"
+            fecha: "Jueves 15 o Viernes 16 de Junio",
+            price: "$50",
         }
     ]
     const products_cart = [
@@ -77,7 +75,7 @@ const CheckOut = () => {
 
                                                 </Col >
                                             </Row>
-                                            <p>Fecha de entrega estimada: <b>17 de julio</b></p> 
+                                            <p>Fecha de entrega estimada: <b>17 de julio</b></p>
                                             <Form>
                                                 {products_cart.map((value, index) => {
                                                     return (
@@ -114,9 +112,48 @@ const CheckOut = () => {
 
 
                                             </Form>
-                                            <Button variant="outline-danger" size="lg" onClick={handleClickCancel}>
-                                                Cancelar Compra
-                                            </Button>
+
+                                            <Row>
+                                                <Col xs={12} sm={12} md={12} lg={12} xl={12} xx={12} xxl={12} className="text-data-payment-method">
+                                                    <strong> 3. Fecha de entrega</strong>
+
+                                                </Col >
+
+                                            </Row>
+                                            <Form>
+                                                {deliver.map((value, index) => {
+                                                    return (
+                                                        <>
+
+                                                            <div>
+                                                                <div className="producto p-2 shadow ">
+                                                                    <Row>
+                                                                        <Col xs={10} sm={10} md={10} lg={10} xl={10} xx={10} xxl={10} >
+                                                                            <Form.Check
+                                                                                inline
+                                                                                name={`grupo-1`}
+                                                                                type="checkbox"
+                                                                                id={`inline-checkboz-1`}
+                                                                            />{value.fecha}
+
+                                                                        </Col>
+                                                                        <Col xs={2} sm={2} md={2} lg={2} xl={2} xx={2} xxl={2} >
+
+                                                                            <b>   {value.price} </b>
+
+                                                                        </Col>
+                                                                    </Row>
+                                                                </div>
+                                                                <br />
+                                                            </div>
+
+                                                        </>
+                                                    )
+                                                })}
+                                            </Form>
+
+
+
                                         </Container>
                                     </div>
 
@@ -166,7 +203,14 @@ const CheckOut = () => {
                                             </Container>
                                         </div>
                                     </div>
+
+
+
+
                                 </Col>
+
+
+
                             </Row>
                         </Container>
                     </div>
