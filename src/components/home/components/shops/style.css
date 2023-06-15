@@ -1,0 +1,53 @@
+.mom-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.shop-container{
+  height: 400px;
+  width: 750px;
+  display: flex;
+  border: 1px solid black;
+  border-radius:2ch;
+  margin: 20px;
+  background-color: white;
+}
+
+.imageS{
+  height: 200px;
+  width: 200px;
+}
+
+.product-shop {
+  position: relative;
+  width: 250px;
+  height: 200px;
+}
+
+#p1{
+  color: rgb(27, 90 ,125);
+  font-weight: bold;
+}
+
+/*mini*/
+.shop-container-small{
+  float: right;
+}
+
+.shop-container-mini{
+  display: flex;
+  border: 1px solid black;
+  border-radius:2ch;
+  margin: 20px;
+  background-color: white;
+}
+
+.image-mini{
+  height: 200px;
+  width: 200px;
+}
+
+.shop-container-mini{
+  width: 470px;
+  height: 190px;
+}

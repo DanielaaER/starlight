@@ -1,0 +1,54 @@
+.slider-container{
+    height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content:  space-between;
+}
+
+h1{
+    color: rgb(27, 90, 125);
+}
+
+.product-container{
+    float: right;
+    position: relative;
+}
+
+
+.image{
+    height: 330px;
+    width: 300px;
+}
+
+.button{
+    height: 50px;
+    width: 120px;
+    background-color: rgb(35, 152, 232);
+    color: #fff;
+    border-radius: 1.5ch;
+    margin-right: 5px;
+}
+
+.button1{
+    height: 50px;
+    width: 120px;
+    background-color: #fff;
+    color: black;
+    border-radius: 1.5ch;
+    border: 1px solid black;
+}
+
+.descuento {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(35, 152, 232);
+    color: #fff;
+    border-radius: 50%;
+    padding: 15px 10px;
+  }
+
+  p{
+    
+  }

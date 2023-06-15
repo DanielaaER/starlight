@@ -70,7 +70,7 @@ function App() {
       <Router>
         <Header CartItem />
         <Routes>
-        {/*   <Route path='/' /> */}
+          {/*   <Route path='/' /> */}
           <Route path='/cart' element={<Cart />} />
           <Route path='/account' element={<Account />} />
           <Route path='/login' element={<Login />} />
@@ -81,18 +81,18 @@ function App() {
           <Route path='/verifyCode' element={<VerifyCode />} />
           <Route path='/forgot' element={<Forgot />} />
 
-          
-          <Route path='/' element={<Home />}/>
-            <Route path='/sell' element={<Sell />} />
-            <Route path='/products' element={<Products />} />
-            <Route path='/payment-method' element={<PaymentMethod />} />
-            <Route path='/checkOut' element={<CheckOut />} />
+
+          <Route path='/' element={<Home />} />
+          <Route path='/sell' element={<Sell />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/payment-method' element={<PaymentMethod />} />
+          <Route path='/checkOut' element={<CheckOut />} />
 
           <Route path='/forgot' element={<Forgot />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/tracking" element={<TrackingComponent />} />
 
-            <Route path='/favorrites' element={<WishList />} />
+          <Route path='/favorrites' element={<WishList />} />
           <Route path='/finishOrder' element={<PedidoRealizado />} />
 
 
