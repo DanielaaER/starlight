@@ -1,35 +1,31 @@
-import React from "react";
-
-import SliderHome from "./MainPage/Slider"
-import TopHome from "./Top/Top"
-import AnnocumentHome from "./Annocument/AnnocumentHome"
-import Shop from "./Shops/Shop"
-import Wrapper from "./Wrapper/Wrapper"
-import PagesReviews from "./Reviews/pageReviews"
-import LastReviews from "./Reviews/lastReviews"
-import { Container } from "react-bootstrap";
-
+import React from "react"
+import FlashDeals from "./components/flashDeals/FlashDeals"
+import Shop from "./components/shops/Shop"
+import AnnocumentHome from "./components/annocument/AnnocumentHome"
+import Wrapper from "./components/wrapper/Wrapper"
+import LastReviews from "./components/reviews/lastReviews"
+import PagesReviews from "./components/reviews/pageReviews"
+import SliderHome from "./Slider"
+import TopHome from "./components/Top/Top"
 
 
-const Home = ({ products }) => {
 
-    return (
-        <>
-         
-            
-{/*              <SliderHome />
-               <TopHome />
-                <AnnocumentHome /> 
-                <Wrapper />
-                    <PagesReviews />
-                <Wrapper />  */}
-                <LastReviews /> 
 
-        </>
-    )
+const Home = ({ productItems, addToCart, CartItem, shopItems }) => {
+  return (
+    <>
+      <SliderHome/>
+      <FlashDeals productItems={productItems} addToCart={addToCart} />
+      <TopHome />
+      <AnnocumentHome />
+      <Shop shopItems={shopItems} addToCart={addToCart} />
+      <Wrapper />
+      <PagesReviews />
+      <Wrapper />
+      <LastReviews />
+    </>
+  )
+
 }
 
 export default Home
-
-
-

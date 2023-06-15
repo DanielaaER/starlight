@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      {/* {
+     {
       (localStorage.getItem("token")) ? (
           <Router>
           <Header CartItem />
@@ -45,7 +45,11 @@ function App() {
             <Route path='/sell' element={<Sell />} />
             <Route path='/products' element={<Products />} />
             <Route path='/payment-method' element={<PaymentMethod />} />
-
+            <Route path='/products' element={<Products />} />
+            <Route path='/checkOut' element={<CheckOut />} />
+            <Route path="/tracking" element={<TrackingComponent />} />
+            <Route path='/favorrites' element={<WishList />} />
+            <Route path='/finishOrder' element={<PedidoRealizado />} />
           </Routes>
           <Footer />
         </Router>
@@ -62,43 +66,13 @@ function App() {
             <Route path='/verifyCode' element={<VerifyCode />} />
             <Route path='/forgot' element={<Forgot />} />
             <Route path='/products' element={<Products />} />
+            <Route path="/tracking" element={<TrackingComponent />} />
           </Routes>
           <Footer />
         </Router>
         )
-      }  */}
-      <Router>
-        <Header CartItem />
-        <Routes>
-        {/*   <Route path='/' /> */}
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/account' element={<Account />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
+      } 
 
-          <Route path='/verify' element={<Verify />} />
-          <Route path='/verifyMail' element={<VerifyMail />} />
-          <Route path='/verifyCode' element={<VerifyCode />} />
-          <Route path='/forgot' element={<Forgot />} />
-
-          
-          <Route path='/' element={<Home />}/>
-            <Route path='/sell' element={<Sell />} />
-            <Route path='/products' element={<Products />} />
-            <Route path='/payment-method' element={<PaymentMethod />} />
-            <Route path='/checkOut' element={<CheckOut />} />
-
-          <Route path='/forgot' element={<Forgot />} />
-          <Route path="/product" element={<ProductDetail />} />
-          <Route path="/tracking" element={<TrackingComponent />} />
-
-            <Route path='/favorrites' element={<WishList />} />
-          <Route path='/finishOrder' element={<PedidoRealizado />} />
-
-
-        </Routes>
-        <Footer />
-      </Router>
     </>
   )
 }

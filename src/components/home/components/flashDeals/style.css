@@ -1,0 +1,23 @@
+
+.product{
+  display: flex;
+  align-items: center;
+  border-radius: 1.5ch;
+  border: 1px solid black;
+  height: 170px;
+  width: 400px;
+}
+
+.img-product{
+  height: 150;
+  width: 200px;
+}
+
+.product-details{
+  float: right;
+  color: rgb(27, 90, 125);
+}
+
+.name-product{
+  font-size: 0.6cm;
+}

@@ -77,7 +77,7 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                 <section className='order-items'>
                                     <div className='container d_flex'>
                                         <div className='order-details'>
-                                            <div className='order-list product d_flex'>
+                                            <div className='order-list prodcut-d_flex'>
 
 
 
@@ -167,7 +167,7 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                                                         Cargando etiqueta
                                                                                     </Button>
                                                                                 </div> :
-                                                                                <div className="d-grid gap-2">
+                                                                                <div className="d-grid gap-2-t">
                                                                                     <Button
                                                                                         variant="primary"
                                                                                         size="md"

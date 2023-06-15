@@ -47,7 +47,7 @@ const Orders = ({ cambiarComponente }) => {
                         <section className='order-items'>
                             <div className='container d_flex'>
                                 <div className='order-details'>
-                                    <div className='order-list product d_flex'>
+                                    <div className='order-list product-t d_flex'>
                                         <div className="estatus">
 
 
