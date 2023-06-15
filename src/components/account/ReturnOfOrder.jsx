@@ -140,7 +140,7 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                 </p>
 
 
-                                                <div className="estatu">
+                                                <div className="estatus">
 
                                                     {(() => {
                                                         if (value.status.toUpperCase() === "EN PROCESO DE DEVOLUCIÓN") {
@@ -187,12 +187,10 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                         <p></p>
                                                     </div>
                                                     
-                                        <div className="estatus">
-                                                        <Button variant="primary" size="md" onClick={cambiarComponente}>
+
+                                                    <Button variant="primary" size="md" onClick={cambiarComponente}>
                                                             Ver detalles
                                                         </Button>
-
-                                                    </div>
 
                                                 </div>
 
