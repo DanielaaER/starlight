@@ -1,0 +1,24 @@
+.wrapper {
+  text-align: center !important;
+}
+.wrapper .img {
+  margin: auto !important;
+  width: 70px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  margin-bottom: 20px !important;
+}
+.wrapper .img i {
+  font-size: 25px !important;
+}
+.wrapper .product {
+  padding: 30px !important;
+}
+.wrapper .product h3 {
+  font-weight: 500 !important;
+}
+.wrapper p {
+  font-size: 15px !important;
+  margin-top: 20px !important;
+  color: grey !important;
+}

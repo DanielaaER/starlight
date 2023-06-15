@@ -1,0 +1,59 @@
+.header{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;   
+    margin-bottom: 10px !important; 
+}
+
+.list-buttum{
+    float: right !important;
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+
+.wish{
+    background: none !important;
+    border: none !important;
+    color: red !important;
+    cursor: pointer !important;
+    font-size: 24px !important;
+  }
+
+.button1{
+    margin-left: 5px !important;
+    color: rgb(27, 90, 125) !important;
+    font-weight: bold !important;
+}
+
+.Top-container{
+    border: 1px solid black !important;
+    border-radius:2ch !important;
+    margin: 20px !important;
+    background-color: white !important;
+}
+
+.imagep{
+    height: 200px !important;
+    width: 200px !important;
+}
+
+.product-top {
+    position: relative !important;
+    width: 250px !important;
+    height: 200px !important;
+  }
+
+.wish {
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+    color: rgb(35, 152 ,232) !important;
+    padding: 4px !important;
+  }
+
+#p1{
+    color: rgb(27, 90 ,125) !important;
+    font-weight: bold !important;
+}

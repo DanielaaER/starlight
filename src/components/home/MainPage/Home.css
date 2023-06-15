@@ -1,0 +1,50 @@
+.slider-container{
+    height: 300px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content:  space-between !important;
+}
+
+h1{
+    color: rgb(27, 90, 125) !important;
+}
+
+.product-container{
+    float: right !important;
+    position: relative !important;
+}
+
+
+.image{
+    height: 330px !important;
+    width: 300px !important;
+}
+
+.button{
+    height: 50px !important;
+    width: 120px !important;
+    background-color: rgb(35, 152, 232) !important;
+    color: #fff !important;
+    border-radius: 1.5ch !important;
+    margin-right: 5px !important;
+}
+
+.button1{
+    height: 50px !important;
+    width: 120px !important;
+    background-color: #fff !important;
+    color: black !important;
+    border-radius: 1.5ch !important;
+    border: 1px solid black !important;
+}
+
+.descuento {
+    position: absolute !important;
+    bottom: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background-color: rgb(35, 152, 232) !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    padding: 15px 10px !important;
+  }
