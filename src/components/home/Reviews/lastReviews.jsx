@@ -3,6 +3,7 @@ import "./reviews.css"
 import Sdata from "./Rdata";
 import Slider from "react-slick";
 
+
 const LastReviews = () => {
   const settings = {
     dots: true,
