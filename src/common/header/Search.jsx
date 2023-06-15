@@ -23,10 +23,11 @@ import client from '../../services/Client';
 const Search = ({ CartItem }) => {
   // fixed Header
   window.addEventListener("scroll", function () {
-    const search = document.querySelector(".search")
-    search.classList.toggle("active", window.scrollY > 100)
-  })
-
+    const search = document.querySelector(".search");
+    if (search) {
+      search.classList.toggle("active", window.scrollY > 100);
+    }
+  });
 
   const [data, setData] = useState(
     {
