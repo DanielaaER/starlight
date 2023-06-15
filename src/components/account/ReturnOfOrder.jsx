@@ -158,19 +158,16 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                                         {({ blob, url, loading, error }) =>
                                                                             loading ?
 
-                                                                                <div className="d-grid gap-2">
-                                                                                    <Button
-                                                                                        variant="primary"
-                                                                                        size="md"
+                                                                                <Button
+                                                                                    variant="primary"
+                                                                                    size="md"
 
-                                                                                    >
-                                                                                        Cargando etiqueta
-                                                                                    </Button>
-                                                                                </div> :
-                                                                                <div className="d-grid gap-2">
+                                                                                >
+                                                                                    Cargando etiqueta
+                                                                                </Button>
+                                                                                :
+                                                                                <div className='return-order-item-buttons'>
                                                                                     <Button
-                                                                                        variant="primary"
-                                                                                        size="md"
 
                                                                                     >
                                                                                         Imprimir etiqueta de devolución
@@ -189,15 +186,14 @@ const ReturnOfOrder = ({ cambiarComponente }) => {
                                                     <div>
                                                         <p></p>
                                                     </div>
-                                                    <div className='return-order-item-buttons'>
-                                                        <div className="d-grid gap-2">
-                                                            <Button variant="primary" size="md" onClick={cambiarComponente}>
-                                                                Ver detalles
-                                                            </Button>
+                                                    
+                                        <div className="estatus">
+                                                        <Button variant="primary" size="md" onClick={cambiarComponente}>
+                                                            Ver detalles
+                                                        </Button>
 
-                                                        </div>
                                                     </div>
-                                                   
+
                                                 </div>
 
 
