@@ -1,0 +1,15 @@
+.header{
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.busquedaCategoria{
+    background-color: #2398E8;
+    color: white;
+    height: 4rem;
+    padding: 0 2rem;
+}

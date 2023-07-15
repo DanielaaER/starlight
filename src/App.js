@@ -6,6 +6,7 @@ import Footer from "./common/footer/Footer"
 import Header from "./common/header/Header"
 import Login from "./components/login/login"
 import Account from "./common/Account/Account"
+import Search from "./common/header/Search"
 import { Container } from "react-bootstrap";
 
 
@@ -58,16 +59,13 @@ function App() {
     <>
       <Router>
         <Header CartItem={CartItem} />
+        <Search />
         <Routes>
           <Route exact path='/login' element={<Login />} >
           </Route>
           <Route exact path='/account' element={<Account />} >
           </Route>
-
-
-
         </Routes>
-
         <Footer />
       </Router>
     </>
